@@ -175,6 +175,7 @@
       <div class="actions">
         <a class="btn primary" id="dashboard" href="https://drlechk.github.io/smartrosary-dashboard/" target="_blank" rel="noopener" data-i18n="dashboard">Panel (Dashboard)</a>
         <a class="btn" id="installer" href="https://drlechk.github.io/smartrosary-web-installer/" target="_blank" rel="noopener" data-i18n="installer">Instalator / Aktualizacje FW</a>
+        <a class="btn" id="intentions-editor" href="https://drlechk.github.io/smartrosary-intentions-editor/" target="_blank" rel="noopener" data-i18n="intentionsEditor">Edytor intencji</a>
         <a class="btn disabled" id="instructions" href="#" role="button" aria-disabled="true" data-i18n="instructions">Instrukcje (wkrótce)</a>
       </div>
       <div id="compat-notice" class="notice" role="status" aria-live="polite"></div>
@@ -196,6 +197,7 @@
           tagline: 'Twój inteligentny asystent modlitwy.',
           dashboard: 'Panel (Dashboard)',
           installer: 'Instalator / Aktualizacje FW',
+          intentionsEditor: 'Edytor intencji',
           instructions: 'Instrukcje (wkrótce)',
           copyright: '© 2025 SmartRosary',
           labelLanguage: 'Język:',
@@ -211,6 +213,7 @@
           tagline: 'Your smart prayer assistant.',
           dashboard: 'Dashboard',
           installer: 'Installer / Firmware Updates',
+          intentionsEditor: 'Intentions editor',
           instructions: 'Instructions (coming soon)',
           copyright: '© 2025 SmartRosary',
           labelLanguage: 'Language:',
@@ -226,6 +229,7 @@
           tagline: 'Ihr intelligenter Gebetsassistent.',
           dashboard: 'Dashboard',
           installer: 'Installer / Firmware-Updates',
+          intentionsEditor: 'Intentionen-Editor',
           instructions: 'Anleitungen (bald verfügbar)',
           copyright: '© 2025 SmartRosary',
           labelLanguage: 'Sprache:',
@@ -377,7 +381,7 @@
       }
 
       function setButtonsDisabled(disabled, dict, reason) {
-        const ids = ['dashboard', 'installer'];
+        const ids = ['dashboard', 'installer', 'intentions-editor'];
         ids.forEach(id => {
           const el = document.getElementById(id);
           if (!el) return;
@@ -539,6 +543,7 @@
 
       attachSmartOpen('dashboard');
       attachSmartOpen('installer');
+      attachSmartOpen('intentions-editor');
       // On load, set initial compatibility state and notice
       showCompatInfoIfNeeded();
     })();
