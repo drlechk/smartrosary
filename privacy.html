@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Polityka prywatności – SmartRosary</title>
+  <meta id="meta-description" name="description" content="Polityka prywatności aplikacji SmartRosary Companion, panelu internetowego i urządzenia SmartRosary.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    :root {
+      --bg: linear-gradient(180deg, #0f5aa0 0%, #0b4f8f 55%, #09457e 100%);
+      --text: #14223d;
+      --muted: #5b6b86;
+      --card: #fffffff2;
+      --border: #b7d6f5;
+      --accent: #0974cc;
+      --accent-soft: #e8f3fd;
+    }
+
+    * { box-sizing: border-box; }
+    html { min-height: 100%; background: var(--bg); scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      color: var(--text);
+      background: var(--bg);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      color: #fff;
+      font-weight: 650;
+      text-decoration: none;
+    }
+    .home-link img { width: 32px; height: 32px; }
+    .home-link:hover span { text-decoration: underline; text-underline-offset: 0.2em; }
+
+    .lang {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+    select {
+      padding: 0.4rem 0.6rem;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 8px;
+      background: transparent;
+      color: #fff;
+      font: inherit;
+    }
+    select:focus { outline: 2px solid #fff; outline-offset: 2px; }
+    select option { color: #111; }
+
+    main {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 1rem 1.25rem 3rem;
+      flex: 1;
+    }
+    .card {
+      background: var(--card);
+      backdrop-filter: blur(6px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: clamp(1.25rem, 4vw, 2.5rem);
+      box-shadow: 0 10px 30px #00000014;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      line-height: 1.2;
+    }
+    .updated { margin: 0.35rem 0 1.5rem; color: var(--muted); }
+    .summary {
+      margin: 1.25rem 0 1.75rem;
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 10px;
+      background: var(--accent-soft);
+    }
+    .summary p { margin: 0; }
+    h2 {
+      margin: 2rem 0 0.65rem;
+      color: #0b4f8f;
+      font-size: 1.25rem;
+      line-height: 1.3;
+    }
+    p { margin: 0.55rem 0; }
+    ul { margin: 0.55rem 0; padding-left: 1.35rem; }
+    li + li { margin-top: 0.35rem; }
+    a { color: #075fa8; }
+    a:hover { color: #043f71; }
+    .contact {
+      padding: 0.85rem 1rem;
+      border-radius: 10px;
+      background: #f5f8fc;
+    }
+
+    footer {
+      padding: 1rem 1.25rem 1.5rem;
+      color: rgba(255,255,255,0.88);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 560px) {
+      header { align-items: center; }
+      .home-link span { display: none; }
+      .lang { min-width: 0; }
+      .lang label {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+      .lang select { width: 8.5rem; max-width: calc(100vw - 6rem); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="home-link" href="index.html">
+      <img src="favicon.svg" alt="">
+      <span>Smart Rosary</span>
+    </a>
+    <div class="lang">
+      <label id="language-label" for="lang">Język:</label>
+      <select id="lang" aria-labelledby="language-label">
+        <option value="pl">Polski</option>
+        <option value="en">English</option>
+        <option value="de">Deutsch</option>
+        <option value="es">Español</option>
+        <option value="fr">Français</option>
+        <option value="pt">Português</option>
+      </select>
+    </div>
+  </header>
+
+  <main>
+    <article class="card" id="privacy-content"></article>
+  </main>
+
+  <footer>© 2026 SmartRosary</footer>
+
+  <script>
+    (function () {
+      const CONTACT = '<a href="mailto:drlechko@gmail.com">drlechko@gmail.com</a>';
+      const GITHUB_PRIVACY = '<a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Privacy Statement</a>';
+      const GITHUB_PAGES = '<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages#data-collection" target="_blank" rel="noopener">GitHub Pages</a>';
+      const APPLE_PRIVACY = '<a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple Privacy Policy</a>';
+
+      const copy = {
+        pl: {
+          pageTitle: 'Polityka prywatności – SmartRosary',
+          description: 'Polityka prywatności aplikacji SmartRosary Companion, panelu internetowego i urządzenia SmartRosary.',
+          language: 'Język:',
+          title: 'Polityka prywatności',
+          updated: 'Ostatnia aktualizacja: 6 lipca 2026 r.',
+          summary: '<strong>W skrócie:</strong> SmartRosary Companion nie wymaga konta, nie zawiera reklam, analityki ani mechanizmów śledzenia. Intencje, ustawienia, historia i statystyki pozostają lokalnie w aplikacji, przeglądarce lub na różańcu. Dane urządzenia są wymieniane bezpośrednio między telefonem lub przeglądarką a urządzeniem SmartRosary przez Bluetooth Low Energy (BLE); nie są przesyłane do operatora SmartRosary.',
+          sections: [
+            ['1. Administrator', '<p>Administratorem w zakresie opisanym poniżej jest projekt SmartRosary (osoba odpowiedzialna: Lech K.). Kontakt: ' + CONTACT + '.</p><p>Nie wyznaczono inspektora ochrony danych, ponieważ nie istnieje taki obowiązek.</p>'],
+            ['2. Zakres informacji', '<p>Niniejsza polityka dotyczy aplikacji <strong>SmartRosary Companion</strong> na iOS i Androida, internetowego panelu SmartRosary, urządzenia SmartRosary oraz tej strony internetowej. Opisuje zarówno dane pozostające wyłącznie lokalnie, jak i techniczne dane połączenia powstające podczas pobierania strony lub aktualizacji.</p>'],
+            ['3. Aplikacja i komunikacja Bluetooth', '<ul><li>Aplikacja skanuje w pobliżu urządzenia SmartRosary i, po udzieleniu uprawnienia systemowego, łączy się z wybranym różańcem przez BLE.</li><li>Przez BLE mogą być odczytywane lub zapisywane m.in. identyfikator i status urządzenia, ustawienia, poziom baterii, wersje oprogramowania i języka, intencje, harmonogramy, historia modlitwy, statystyki, tapety oraz pakiety aktualizacji.</li><li>Ta komunikacja odbywa się bezpośrednio i lokalnie. Operator SmartRosary nie otrzymuje jej treści.</li><li>Aplikacja nie wykorzystuje danych Bluetooth do śledzenia lokalizacji.</li></ul>'],
+            ['4. Dane przechowywane lokalnie', '<p>Aplikacja może zapisywać w swojej chronionej przestrzeni: sparowane urządzenia i techniczne dane parowania, ustawienia aplikacji, ostatnio zsynchronizowane dane, kopie zapasowe utworzone przez użytkownika oraz wybrane pliki. Dane te służą wyłącznie funkcjom aplikacji i dostępowi offline.</p><p>Wybrane zdjęcie lub obraz tapety jest przetwarzany lokalnie i przesyłany wyłącznie do połączonego różańca. Nie jest wysyłany do operatora ani usługi chmurowej. Dostęp do zdjęć lub aparatu następuje tylko po wyborze odpowiedniej funkcji i po udzieleniu uprawnienia.</p><p>Dane lokalne można usuwać w odpowiednich funkcjach aplikacji, przez rozparowanie/reset urządzenia lub odinstalowanie aplikacji. Dane na różańcu pozostają do czasu ich zmiany, usunięcia lub przywrócenia urządzenia do ustawień fabrycznych.</p>'],
+            ['5. Panel internetowy i urządzenie', '<p>Panel internetowy korzysta z Web Bluetooth. Odczytane ustawienia, intencje, historia i statystyki są przetwarzane w przeglądarce i wymieniane lokalnie z różańcem; nie są przesyłane do operatora SmartRosary. Przeglądarka może lokalnie zachować niezbędne preferencje, np. język.</p><p>Samo urządzenie SmartRosary nie wysyła danych do Internetu. Przechowuje swoje ustawienia i treści lokalnie i udostępnia je przez BLE dopiero po połączeniu przez użytkownika.</p>'],
+            ['6. Dostęp do strony i aktualizacje', '<p>Strona oraz pliki firmware, językowe i intencji są udostępniane przez GitHub Pages. Podczas otwierania strony, sprawdzania wersji lub pobierania pliku urządzenie łączy się przez HTTPS z serwerami GitHub. W takim żądaniu technicznie przekazywane są w szczególności adres IP, czas, żądany adres pliku oraz informacje typowe dla klienta HTTP. Żadne intencje, statystyki, historie modlitwy ani ustawienia różańca nie są dołączane do tych żądań.</p><p>GitHub informuje, że adresy IP odwiedzających GitHub Pages są rejestrowane w celach bezpieczeństwa. Szczegóły: ' + GITHUB_PAGES + ' i ' + GITHUB_PRIVACY + '.</p><p>Dystrybucja aplikacji przez App Store lub Google Play podlega również zasadom odpowiedniego operatora platformy. Informacje o Apple: ' + APPLE_PRIVACY + '.</p>'],
+            ['7. Cele, podstawy prawne i okres przechowywania', '<p>Lokalne przetwarzanie jest wykonywane na żądanie użytkownika w celu zapewnienia funkcji aplikacji i urządzenia. Ponieważ operator nie ma dostępu do tych danych, nie są one przechowywane na jego serwerach.</p><p>Techniczne dane połączenia przy udostępnianiu stron i aktualizacji są przetwarzane w celu bezpiecznego, stabilnego dostarczania usługi oraz zapobiegania nadużyciom, na podstawie art. 6 ust. 1 lit. f RODO. Uzasadnionym interesem jest bezpieczne udostępnianie strony i oprogramowania. Okres przechowywania tych danych ustala GitHub zgodnie ze swoimi zasadami.</p>'],
+            ['8. Odbiorcy i transfery do państw trzecich', '<p>Operator SmartRosary nie sprzedaje danych i nie przekazuje danych modlitewnych, intencji, historii ani ustawień osobom trzecim. Przy korzystaniu z hostowanych stron i pobieraniu aktualizacji odbiorcą technicznych danych połączenia może być GitHub, Inc. Szczegóły dotyczące lokalizacji przetwarzania i stosowanych zabezpieczeń znajdują się w oświadczeniu GitHub dotyczącym prywatności.</p>'],
+            ['9. Prawa użytkownika', '<p>W zakresie, w jakim administrator przetwarza dane osobowe, użytkownik ma prawo do informacji, dostępu, sprostowania, usunięcia, ograniczenia przetwarzania, przenoszenia danych oraz sprzeciwu zgodnie z warunkami RODO. Ma również prawo złożyć skargę do właściwego organu nadzorczego, w szczególności w państwie swojego zwykłego pobytu, miejsca pracy lub domniemanego naruszenia.</p><p>Ponieważ dane funkcjonalne SmartRosary pozostają lokalnie i operator nie ma do nich dostępu, operator zwykle nie może odtworzyć, wyeksportować ani usunąć ich zdalnie. Użytkownik zarządza nimi bezpośrednio w aplikacji, przeglądarce i urządzeniu.</p>'],
+            ['10. Bezpieczeństwo i zmiany polityki', '<p>Komunikacja odbywa się w ramach uprawnień i mechanizmów bezpieczeństwa systemu operacyjnego oraz protokołu SmartRosary. Użytkownik powinien chronić dostęp do telefonu i kopii zapasowych.</p><p>Polityka może zostać zaktualizowana, jeśli zmienią się funkcje, dostawcy lub wymogi prawne. Aktualna wersja jest zawsze dostępna pod tym adresem.</p>'],
+            ['11. Kontakt', '<p class="contact">Pytania dotyczące prywatności: ' + CONTACT + '</p>']
+          ]
+        },
+        en: {
+          pageTitle: 'Privacy Policy – SmartRosary',
+          description: 'Privacy policy for the SmartRosary Companion app, web dashboard and SmartRosary device.',
+          language: 'Language:',
+          title: 'Privacy Policy',
+          updated: 'Last updated: 6 July 2026',
+          summary: '<strong>In short:</strong> SmartRosary Companion requires no account and contains no advertising, analytics or tracking. Intentions, settings, history and statistics remain locally in the app, browser or rosary. Device data is exchanged directly between the phone or browser and the SmartRosary device via Bluetooth Low Energy (BLE); it is not transmitted to the SmartRosary operator.',
+          sections: [
+            ['1. Controller', '<p>The controller for the processing described below is the SmartRosary project (responsible person: Lech K.). Contact: ' + CONTACT + '.</p><p>No data protection officer has been appointed because there is no legal obligation to do so.</p>'],
+            ['2. Scope', '<p>This policy applies to the <strong>SmartRosary Companion</strong> app for iOS and Android, the SmartRosary web dashboard, the SmartRosary device and this website. It covers both data that remains exclusively local and technical connection data generated when pages or updates are downloaded.</p>'],
+            ['3. App and Bluetooth communication', '<ul><li>The app scans for nearby SmartRosary devices and, after system permission is granted, connects to the selected rosary via BLE.</li><li>BLE may read or write the device identifier and status, settings, battery level, firmware and language versions, intentions, schedules, prayer history, statistics, wallpapers and update packages.</li><li>This communication is direct and local. The SmartRosary operator does not receive its contents.</li><li>The app does not use Bluetooth data to track location.</li></ul>'],
+            ['4. Locally stored data', '<p>The app may store paired devices and technical pairing data, app preferences, last synchronised data, user-created backups and selected files in its protected app storage. This data is used only for app functions and offline access.</p><p>A selected wallpaper photo or image is processed locally and transferred only to the connected rosary. It is not uploaded to the operator or a cloud service. Photo or camera access occurs only when the relevant function is selected and permission is granted.</p><p>Local data can be removed through the relevant app functions, by unpairing/resetting the device or by uninstalling the app. Data on the rosary remains until it is changed, deleted or the device is factory-reset.</p>'],
+            ['5. Web dashboard and device', '<p>The web dashboard uses Web Bluetooth. Settings, intentions, history and statistics read from the rosary are processed in the browser and exchanged locally with the rosary; they are not sent to the SmartRosary operator. The browser may store necessary preferences such as language locally.</p><p>The SmartRosary device itself does not transmit data to the Internet. It stores settings and content locally and exposes them via BLE only after the user connects.</p>'],
+            ['6. Website access and updates', '<p>The website and firmware, language and intentions files are provided through GitHub Pages. When opening a page, checking a version or downloading a file, the device connects to GitHub servers via HTTPS. The request necessarily includes technical data such as the IP address, time, requested file address and ordinary HTTP client information. No intentions, statistics, prayer history or rosary settings are attached to these requests.</p><p>GitHub states that visitor IP addresses are logged for GitHub Pages security. See ' + GITHUB_PAGES + ' and the ' + GITHUB_PRIVACY + '.</p><p>Distribution through the App Store or Google Play is also subject to the respective platform operator’s terms. Apple information: ' + APPLE_PRIVACY + '.</p>'],
+            ['7. Purposes, legal bases and retention', '<p>Local processing is performed at the user’s request to provide app and device functions. As the operator has no access to this data, it is not stored on the operator’s servers.</p><p>Technical connection data used to provide pages and updates is processed to deliver the service securely and reliably and to prevent misuse, based on Article 6(1)(f) GDPR. The legitimate interest is the secure provision of the website and software. GitHub determines retention periods for this data under its policies.</p>'],
+            ['8. Recipients and international transfers', '<p>The SmartRosary operator does not sell data or disclose prayer data, intentions, history or settings to third parties. When hosted pages or updates are accessed, GitHub, Inc. may receive technical connection data. Details of processing locations and safeguards are provided in GitHub’s privacy statement.</p>'],
+            ['9. Your rights', '<p>Where the controller processes personal data, you have rights to information, access, rectification, erasure, restriction, data portability and objection under the conditions of the GDPR. You may lodge a complaint with a competent supervisory authority, in particular in the country of your habitual residence, place of work or the alleged infringement.</p><p>Because SmartRosary functional data remains local and the operator cannot access it, the operator generally cannot retrieve, export or erase it remotely. You manage it directly in the app, browser and device.</p>'],
+            ['10. Security and policy changes', '<p>Communication operates within the permissions and security mechanisms of the operating system and the SmartRosary protocol. Users should protect access to their phone and backups.</p><p>This policy may be updated if functions, providers or legal requirements change. The current version is always available at this URL.</p>'],
+            ['11. Contact', '<p class="contact">Privacy questions: ' + CONTACT + '</p>']
+          ]
+        },
+        de: {
+          pageTitle: 'Datenschutzerklärung – SmartRosary',
+          description: 'Datenschutzerklärung für die SmartRosary Companion App, das Web-Dashboard und das SmartRosary-Gerät.',
+          language: 'Sprache:',
+          title: 'Datenschutzerklärung',
+          updated: 'Stand: 6. Juli 2026',
+          summary: '<strong>Kurz gesagt:</strong> SmartRosary Companion benötigt kein Konto und enthält weder Werbung noch Analyse- oder Trackingdienste. Intentionen, Einstellungen, Verlauf und Statistiken bleiben lokal in App, Browser oder Rosenkranz. Gerätedaten werden direkt zwischen Telefon bzw. Browser und dem SmartRosary-Gerät über Bluetooth Low Energy (BLE) ausgetauscht; sie werden nicht an den SmartRosary-Betreiber übertragen.',
+          sections: [
+            ['1. Verantwortlicher', '<p>Verantwortlicher für die nachfolgend beschriebene Verarbeitung ist das SmartRosary-Projekt (verantwortliche Person: Lech K.). Kontakt: ' + CONTACT + '.</p><p>Ein Datenschutzbeauftragter wurde nicht bestellt, da keine gesetzliche Verpflichtung hierzu besteht.</p>'],
+            ['2. Geltungsbereich', '<p>Diese Erklärung gilt für die <strong>SmartRosary Companion</strong> App für iOS und Android, das SmartRosary-Web-Dashboard, das SmartRosary-Gerät und diese Website. Sie beschreibt sowohl ausschließlich lokal verbleibende Daten als auch technische Verbindungsdaten beim Abruf von Seiten und Updates.</p>'],
+            ['3. App und Bluetooth-Kommunikation', '<ul><li>Die App sucht nach SmartRosary-Geräten in der Nähe und verbindet sich nach Erteilung der Systemberechtigung per BLE mit dem ausgewählten Rosenkranz.</li><li>Über BLE können insbesondere Gerätekennung und -status, Einstellungen, Akkustand, Firmware- und Sprachversionen, Intentionen, Zeitpläne, Gebetsverlauf, Statistiken, Hintergrundbilder und Updatepakete gelesen oder geschrieben werden.</li><li>Diese Kommunikation erfolgt direkt und lokal. Der SmartRosary-Betreiber erhält deren Inhalte nicht.</li><li>Bluetooth-Daten werden nicht zur Standortverfolgung verwendet.</li></ul>'],
+            ['4. Lokal gespeicherte Daten', '<p>Die App kann gekoppelte Geräte und technische Kopplungsdaten, App-Einstellungen, zuletzt synchronisierte Daten, vom Nutzer erstellte Sicherungen und ausgewählte Dateien in ihrem geschützten App-Speicher ablegen. Diese Daten dienen ausschließlich den App-Funktionen und dem Offline-Zugriff.</p><p>Ein ausgewähltes Foto oder Hintergrundbild wird lokal verarbeitet und nur an den verbundenen Rosenkranz übertragen. Es wird weder zum Betreiber noch in einen Cloud-Dienst hochgeladen. Der Zugriff auf Fotos oder Kamera erfolgt nur nach Auswahl der entsprechenden Funktion und Erteilung der Berechtigung.</p><p>Lokale Daten können über die jeweiligen App-Funktionen, durch Entkoppeln/Zurücksetzen oder durch Deinstallation entfernt werden. Daten auf dem Rosenkranz bleiben gespeichert, bis sie geändert, gelöscht oder das Gerät auf Werkseinstellungen zurückgesetzt wird.</p>'],
+            ['5. Web-Dashboard und Gerät', '<p>Das Web-Dashboard verwendet Web Bluetooth. Vom Rosenkranz gelesene Einstellungen, Intentionen, Verläufe und Statistiken werden im Browser verarbeitet und lokal mit dem Rosenkranz ausgetauscht; sie werden nicht an den SmartRosary-Betreiber gesendet. Der Browser kann notwendige Einstellungen wie die Sprachauswahl lokal speichern.</p><p>Das SmartRosary-Gerät selbst überträgt keine Daten ins Internet. Es speichert Einstellungen und Inhalte lokal und stellt sie erst nach einer vom Nutzer hergestellten Verbindung per BLE bereit.</p>'],
+            ['6. Websiteabrufe und Updates', '<p>Die Website sowie Firmware-, Sprach- und Intentionendateien werden über GitHub Pages bereitgestellt. Beim Öffnen einer Seite, Prüfen einer Version oder Herunterladen einer Datei verbindet sich das Gerät per HTTPS mit GitHub-Servern. Dabei werden technisch insbesondere IP-Adresse, Zeitpunkt, angeforderte Dateiadresse und übliche Informationen des HTTP-Clients übertragen. Intentionen, Statistiken, Gebetsverläufe oder Rosenkranz-Einstellungen werden diesen Anfragen nicht beigefügt.</p><p>GitHub weist darauf hin, dass IP-Adressen von GitHub-Pages-Besuchern zu Sicherheitszwecken protokolliert werden. Einzelheiten: ' + GITHUB_PAGES + ' und ' + GITHUB_PRIVACY + '.</p><p>Für die Verteilung über App Store oder Google Play gelten daneben die Bestimmungen des jeweiligen Plattformbetreibers. Informationen von Apple: ' + APPLE_PRIVACY + '.</p>'],
+            ['7. Zwecke, Rechtsgrundlagen und Speicherdauer', '<p>Die lokale Verarbeitung erfolgt auf Wunsch des Nutzers zur Bereitstellung der App- und Gerätefunktionen. Da der Betreiber auf diese Daten nicht zugreifen kann, werden sie nicht auf seinen Servern gespeichert.</p><p>Technische Verbindungsdaten beim Bereitstellen von Seiten und Updates werden zur sicheren und stabilen Auslieferung sowie zur Missbrauchsabwehr auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO verarbeitet. Das berechtigte Interesse liegt in der sicheren Bereitstellung von Website und Software. Die Speicherdauer dieser Daten bestimmt GitHub nach seinen Richtlinien.</p>'],
+            ['8. Empfänger und Drittlandübermittlungen', '<p>Der SmartRosary-Betreiber verkauft keine Daten und gibt Gebetsdaten, Intentionen, Verläufe oder Einstellungen nicht an Dritte weiter. Beim Abruf gehosteter Seiten und Updates kann GitHub, Inc. technische Verbindungsdaten empfangen. Angaben zu Verarbeitungsorten und Schutzmaßnahmen enthält die Datenschutzerklärung von GitHub.</p>'],
+            ['9. Rechte betroffener Personen', '<p>Soweit der Verantwortliche personenbezogene Daten verarbeitet, bestehen nach den Voraussetzungen der DSGVO Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Zudem besteht ein Beschwerderecht bei einer zuständigen Datenschutzaufsichtsbehörde, insbesondere am gewöhnlichen Aufenthaltsort, Arbeitsplatz oder Ort des mutmaßlichen Verstoßes.</p><p>Da SmartRosary-Funktionsdaten lokal verbleiben und der Betreiber keinen Zugriff darauf hat, kann er diese regelmäßig nicht aus der Ferne abrufen, exportieren oder löschen. Die Verwaltung erfolgt direkt in App, Browser und Gerät.</p>'],
+            ['10. Sicherheit und Änderungen', '<p>Die Kommunikation erfolgt im Rahmen der Berechtigungs- und Sicherheitsmechanismen des Betriebssystems und des SmartRosary-Protokolls. Nutzer sollten den Zugriff auf Telefon und Sicherungen schützen.</p><p>Diese Erklärung kann angepasst werden, wenn sich Funktionen, Anbieter oder rechtliche Anforderungen ändern. Die aktuelle Fassung ist stets unter dieser URL abrufbar.</p>'],
+            ['11. Kontakt', '<p class="contact">Fragen zum Datenschutz: ' + CONTACT + '</p>']
+          ]
+        },
+        es: {
+          pageTitle: 'Política de privacidad – SmartRosary',
+          description: 'Política de privacidad de la app SmartRosary Companion, el panel web y el dispositivo SmartRosary.',
+          language: 'Idioma:',
+          title: 'Política de privacidad',
+          updated: 'Última actualización: 6 de julio de 2026',
+          summary: '<strong>En resumen:</strong> SmartRosary Companion no requiere una cuenta y no contiene publicidad, analítica ni seguimiento. Las intenciones, los ajustes, el historial y las estadísticas permanecen localmente en la app, el navegador o el rosario. Los datos del dispositivo se intercambian directamente entre el teléfono o navegador y el dispositivo SmartRosary mediante Bluetooth Low Energy (BLE); no se transmiten al operador de SmartRosary.',
+          sections: [
+            ['1. Responsable', '<p>El responsable del tratamiento descrito a continuación es el proyecto SmartRosary (persona responsable: Lech K.). Contacto: ' + CONTACT + '.</p><p>No se ha designado delegado de protección de datos porque no existe obligación legal de hacerlo.</p>'],
+            ['2. Ámbito', '<p>Esta política se aplica a la app <strong>SmartRosary Companion</strong> para iOS y Android, al panel web SmartRosary, al dispositivo SmartRosary y a este sitio web. Incluye tanto los datos que permanecen exclusivamente locales como los datos técnicos de conexión generados al descargar páginas o actualizaciones.</p>'],
+            ['3. App y comunicación Bluetooth', '<ul><li>La app busca dispositivos SmartRosary cercanos y, tras conceder el permiso del sistema, se conecta al rosario seleccionado mediante BLE.</li><li>Por BLE se pueden leer o escribir el identificador y estado del dispositivo, ajustes, batería, versiones de firmware e idioma, intenciones, horarios, historial de oración, estadísticas, fondos y paquetes de actualización.</li><li>La comunicación es directa y local. El operador de SmartRosary no recibe su contenido.</li><li>La app no utiliza los datos Bluetooth para rastrear la ubicación.</li></ul>'],
+            ['4. Datos almacenados localmente', '<p>La app puede guardar en su espacio protegido dispositivos vinculados y datos técnicos de vinculación, preferencias, últimos datos sincronizados, copias creadas por el usuario y archivos seleccionados. Solo se usan para las funciones de la app y el acceso sin conexión.</p><p>Una foto o imagen de fondo seleccionada se procesa localmente y se transfiere únicamente al rosario conectado. No se carga al operador ni a un servicio en la nube. El acceso a fotos o cámara solo tiene lugar al elegir la función correspondiente y conceder permiso.</p><p>Los datos locales pueden eliminarse mediante las funciones de la app, desvinculando/restableciendo o desinstalando la app. Los datos del rosario permanecen hasta que se modifican, eliminan o se restablece el dispositivo de fábrica.</p>'],
+            ['5. Panel web y dispositivo', '<p>El panel web utiliza Web Bluetooth. Los ajustes, intenciones, historial y estadísticas leídos se procesan en el navegador y se intercambian localmente con el rosario; no se envían al operador. El navegador puede guardar localmente preferencias necesarias, como el idioma.</p><p>El dispositivo SmartRosary no transmite datos a Internet. Guarda sus ajustes y contenidos localmente y solo los ofrece por BLE después de que el usuario se conecte.</p>'],
+            ['6. Acceso web y actualizaciones', '<p>El sitio y los archivos de firmware, idioma e intenciones se ofrecen mediante GitHub Pages. Al abrir una página, comprobar una versión o descargar un archivo, el dispositivo se conecta por HTTPS a servidores de GitHub. La solicitud incluye necesariamente datos técnicos como dirección IP, hora, archivo solicitado e información habitual del cliente HTTP. No se adjuntan intenciones, estadísticas, historial de oración ni ajustes del rosario.</p><p>GitHub indica que registra las direcciones IP de visitantes de GitHub Pages por seguridad. Consulte ' + GITHUB_PAGES + ' y la ' + GITHUB_PRIVACY + '.</p><p>La distribución mediante App Store o Google Play también se rige por las condiciones de la plataforma correspondiente. Información de Apple: ' + APPLE_PRIVACY + '.</p>'],
+            ['7. Fines, bases jurídicas y conservación', '<p>El tratamiento local se realiza a petición del usuario para ofrecer las funciones de la app y del dispositivo. Como el operador no puede acceder a esos datos, no se almacenan en sus servidores.</p><p>Los datos técnicos de conexión se tratan para prestar el servicio de forma segura y estable y evitar abusos, sobre la base del artículo 6.1.f del RGPD. El interés legítimo es la provisión segura del sitio y del software. GitHub determina los plazos de conservación conforme a sus políticas.</p>'],
+            ['8. Destinatarios y transferencias internacionales', '<p>El operador no vende datos ni comunica a terceros datos de oración, intenciones, historial o ajustes. Al acceder a páginas alojadas o actualizaciones, GitHub, Inc. puede recibir datos técnicos de conexión. La declaración de privacidad de GitHub informa sobre lugares de tratamiento y garantías.</p>'],
+            ['9. Derechos', '<p>Cuando el responsable trate datos personales, usted dispone de los derechos de información, acceso, rectificación, supresión, limitación, portabilidad y oposición en las condiciones del RGPD. También puede reclamar ante una autoridad de control competente, especialmente en su residencia habitual, lugar de trabajo o lugar de la supuesta infracción.</p><p>Como los datos funcionales de SmartRosary permanecen localmente y el operador no puede acceder a ellos, normalmente no puede recuperarlos, exportarlos ni borrarlos a distancia. Usted los gestiona directamente en la app, el navegador y el dispositivo.</p>'],
+            ['10. Seguridad y cambios', '<p>La comunicación utiliza los permisos y mecanismos de seguridad del sistema operativo y del protocolo SmartRosary. Proteja el acceso al teléfono y a sus copias.</p><p>Esta política puede actualizarse si cambian las funciones, proveedores o requisitos legales. La versión vigente siempre está disponible en esta URL.</p>'],
+            ['11. Contacto', '<p class="contact">Consultas de privacidad: ' + CONTACT + '</p>']
+          ]
+        },
+        fr: {
+          pageTitle: 'Politique de confidentialité – SmartRosary',
+          description: 'Politique de confidentialité de l’app SmartRosary Companion, du tableau de bord web et de l’appareil SmartRosary.',
+          language: 'Langue :',
+          title: 'Politique de confidentialité',
+          updated: 'Dernière mise à jour : 6 juillet 2026',
+          summary: '<strong>En bref :</strong> SmartRosary Companion ne nécessite aucun compte et ne contient ni publicité, ni analyse, ni suivi. Les intentions, réglages, historiques et statistiques restent localement dans l’app, le navigateur ou le chapelet. Les données de l’appareil sont échangées directement entre le téléphone ou navigateur et l’appareil SmartRosary par Bluetooth Low Energy (BLE) ; elles ne sont pas transmises à l’exploitant de SmartRosary.',
+          sections: [
+            ['1. Responsable du traitement', '<p>Le responsable du traitement décrit ci-dessous est le projet SmartRosary (personne responsable : Lech K.). Contact : ' + CONTACT + '.</p><p>Aucun délégué à la protection des données n’a été désigné, car aucune obligation légale ne l’impose.</p>'],
+            ['2. Champ d’application', '<p>Cette politique s’applique à l’app <strong>SmartRosary Companion</strong> pour iOS et Android, au tableau de bord web SmartRosary, à l’appareil SmartRosary et à ce site. Elle couvre les données restant exclusivement locales et les données techniques de connexion générées lors du chargement de pages ou de mises à jour.</p>'],
+            ['3. App et communication Bluetooth', '<ul><li>L’app recherche les appareils SmartRosary proches et, après autorisation du système, se connecte au chapelet choisi par BLE.</li><li>Le BLE peut lire ou écrire l’identifiant et l’état de l’appareil, les réglages, la batterie, les versions du firmware et de langue, les intentions, calendriers, historiques de prière, statistiques, fonds d’écran et paquets de mise à jour.</li><li>Cette communication est directe et locale. L’exploitant de SmartRosary n’en reçoit pas le contenu.</li><li>L’app n’utilise pas les données Bluetooth pour suivre la localisation.</li></ul>'],
+            ['4. Données stockées localement', '<p>L’app peut conserver dans son espace protégé les appareils associés et données techniques d’association, préférences, dernières données synchronisées, sauvegardes créées par l’utilisateur et fichiers choisis. Ces données servent uniquement aux fonctions de l’app et à l’accès hors ligne.</p><p>Une photo ou image de fond choisie est traitée localement et transférée uniquement au chapelet connecté. Elle n’est envoyée ni à l’exploitant ni à un cloud. L’accès aux photos ou à l’appareil photo n’a lieu qu’après sélection de la fonction et autorisation.</p><p>Les données locales peuvent être supprimées par les fonctions de l’app, la dissociation/réinitialisation ou la désinstallation. Les données du chapelet restent jusqu’à leur modification, suppression ou réinitialisation d’usine.</p>'],
+            ['5. Tableau de bord web et appareil', '<p>Le tableau de bord utilise Web Bluetooth. Les réglages, intentions, historiques et statistiques lus sont traités dans le navigateur et échangés localement avec le chapelet ; ils ne sont pas envoyés à l’exploitant. Le navigateur peut enregistrer localement des préférences nécessaires, comme la langue.</p><p>L’appareil SmartRosary ne transmet lui-même aucune donnée sur Internet. Il stocke localement ses réglages et contenus et ne les expose par BLE qu’après connexion de l’utilisateur.</p>'],
+            ['6. Accès au site et mises à jour', '<p>Le site et les fichiers de firmware, langue et intentions sont fournis par GitHub Pages. À l’ouverture d’une page, la vérification d’une version ou le téléchargement d’un fichier, l’appareil se connecte aux serveurs GitHub par HTTPS. La requête comprend nécessairement des données techniques telles que l’adresse IP, l’heure, l’adresse du fichier demandé et les informations ordinaires du client HTTP. Aucune intention, statistique, histoire de prière ou réglage du chapelet n’y est joint.</p><p>GitHub indique journaliser les adresses IP des visiteurs de GitHub Pages à des fins de sécurité. Voir ' + GITHUB_PAGES + ' et la ' + GITHUB_PRIVACY + '.</p><p>La distribution via l’App Store ou Google Play est aussi soumise aux règles de la plateforme concernée. Informations Apple : ' + APPLE_PRIVACY + '.</p>'],
+            ['7. Finalités, bases légales et conservation', '<p>Le traitement local est effectué à la demande de l’utilisateur pour fournir les fonctions de l’app et de l’appareil. L’exploitant n’y ayant pas accès, ces données ne sont pas stockées sur ses serveurs.</p><p>Les données techniques de connexion sont traitées pour fournir le service de manière sûre et stable et prévenir les abus, sur la base de l’article 6, paragraphe 1, point f du RGPD. L’intérêt légitime est la fourniture sécurisée du site et du logiciel. GitHub fixe les durées de conservation selon ses politiques.</p>'],
+            ['8. Destinataires et transferts internationaux', '<p>L’exploitant ne vend aucune donnée et ne transmet pas à des tiers les données de prière, intentions, historiques ou réglages. Lors de l’accès aux pages hébergées ou mises à jour, GitHub, Inc. peut recevoir des données techniques de connexion. La déclaration de confidentialité de GitHub précise les lieux de traitement et garanties.</p>'],
+            ['9. Vos droits', '<p>Lorsque le responsable traite des données personnelles, vous disposez des droits à l’information, l’accès, la rectification, l’effacement, la limitation, la portabilité et l’opposition selon les conditions du RGPD. Vous pouvez saisir une autorité de contrôle compétente, notamment dans votre pays de résidence habituelle, votre lieu de travail ou le lieu de l’infraction présumée.</p><p>Les données fonctionnelles SmartRosary restant locales et inaccessibles à l’exploitant, celui-ci ne peut généralement pas les récupérer, exporter ou effacer à distance. Vous les gérez directement dans l’app, le navigateur et l’appareil.</p>'],
+            ['10. Sécurité et modifications', '<p>La communication utilise les autorisations et mécanismes de sécurité du système d’exploitation et du protocole SmartRosary. Protégez l’accès à votre téléphone et à vos sauvegardes.</p><p>Cette politique peut évoluer si les fonctions, fournisseurs ou exigences légales changent. La version actuelle est toujours disponible à cette URL.</p>'],
+            ['11. Contact', '<p class="contact">Questions de confidentialité : ' + CONTACT + '</p>']
+          ]
+        },
+        pt: {
+          pageTitle: 'Política de privacidade – SmartRosary',
+          description: 'Política de privacidade da aplicação SmartRosary Companion, painel web e dispositivo SmartRosary.',
+          language: 'Idioma:',
+          title: 'Política de privacidade',
+          updated: 'Última atualização: 6 de julho de 2026',
+          summary: '<strong>Em resumo:</strong> A SmartRosary Companion não requer conta e não contém publicidade, análise ou rastreamento. Intenções, definições, histórico e estatísticas permanecem localmente na aplicação, no navegador ou no rosário. Os dados do dispositivo são trocados diretamente entre o telefone ou navegador e o dispositivo SmartRosary por Bluetooth Low Energy (BLE); não são transmitidos ao operador SmartRosary.',
+          sections: [
+            ['1. Responsável pelo tratamento', '<p>O responsável pelo tratamento descrito abaixo é o projeto SmartRosary (pessoa responsável: Lech K.). Contacto: ' + CONTACT + '.</p><p>Não foi designado encarregado de proteção de dados porque não existe obrigação legal para tal.</p>'],
+            ['2. Âmbito', '<p>Esta política aplica-se à aplicação <strong>SmartRosary Companion</strong> para iOS e Android, ao painel web SmartRosary, ao dispositivo SmartRosary e a este site. Abrange tanto dados que permanecem exclusivamente locais como dados técnicos de ligação gerados ao descarregar páginas ou atualizações.</p>'],
+            ['3. Aplicação e comunicação Bluetooth', '<ul><li>A aplicação procura dispositivos SmartRosary próximos e, após autorização do sistema, liga-se ao rosário selecionado por BLE.</li><li>O BLE pode ler ou escrever o identificador e estado do dispositivo, definições, bateria, versões de firmware e idioma, intenções, horários, histórico de oração, estatísticas, fundos e pacotes de atualização.</li><li>Esta comunicação é direta e local. O operador SmartRosary não recebe o seu conteúdo.</li><li>A aplicação não usa dados Bluetooth para rastrear a localização.</li></ul>'],
+            ['4. Dados armazenados localmente', '<p>A aplicação pode guardar no seu espaço protegido dispositivos emparelhados e dados técnicos de emparelhamento, preferências, últimos dados sincronizados, cópias criadas pelo utilizador e ficheiros selecionados. Estes dados servem apenas as funções da aplicação e o acesso offline.</p><p>Uma fotografia ou imagem de fundo selecionada é processada localmente e transferida apenas para o rosário ligado. Não é carregada para o operador nem para um serviço cloud. O acesso a fotografias ou câmara só ocorre após selecionar a função e conceder permissão.</p><p>Os dados locais podem ser removidos pelas funções da aplicação, desemparelhando/repondo ou desinstalando a aplicação. Os dados no rosário permanecem até serem alterados, eliminados ou o dispositivo ser reposto de fábrica.</p>'],
+            ['5. Painel web e dispositivo', '<p>O painel web usa Web Bluetooth. Definições, intenções, histórico e estatísticas lidos são processados no navegador e trocados localmente com o rosário; não são enviados ao operador. O navegador pode guardar localmente preferências necessárias, como o idioma.</p><p>O dispositivo SmartRosary não transmite dados para a Internet. Guarda definições e conteúdos localmente e só os disponibiliza por BLE depois de o utilizador estabelecer ligação.</p>'],
+            ['6. Acesso ao site e atualizações', '<p>O site e os ficheiros de firmware, idioma e intenções são fornecidos pelo GitHub Pages. Ao abrir uma página, verificar uma versão ou descarregar um ficheiro, o dispositivo liga-se por HTTPS aos servidores GitHub. O pedido inclui necessariamente dados técnicos como endereço IP, hora, endereço do ficheiro pedido e informações comuns do cliente HTTP. Não são anexadas intenções, estatísticas, histórico de oração nem definições do rosário.</p><p>O GitHub informa que regista endereços IP de visitantes do GitHub Pages para fins de segurança. Consulte ' + GITHUB_PAGES + ' e a ' + GITHUB_PRIVACY + '.</p><p>A distribuição pela App Store ou Google Play também está sujeita às condições da respetiva plataforma. Informação Apple: ' + APPLE_PRIVACY + '.</p>'],
+            ['7. Finalidades, bases legais e conservação', '<p>O tratamento local é realizado a pedido do utilizador para fornecer as funções da aplicação e do dispositivo. Como o operador não tem acesso a esses dados, eles não são armazenados nos seus servidores.</p><p>Os dados técnicos de ligação são tratados para fornecer o serviço de forma segura e estável e prevenir abusos, com base no artigo 6.º, n.º 1, alínea f) do RGPD. O interesse legítimo é a disponibilização segura do site e do software. O GitHub define os prazos de conservação segundo as suas políticas.</p>'],
+            ['8. Destinatários e transferências internacionais', '<p>O operador não vende dados nem divulga a terceiros dados de oração, intenções, histórico ou definições. Ao aceder a páginas alojadas ou atualizações, a GitHub, Inc. pode receber dados técnicos de ligação. A declaração de privacidade do GitHub informa sobre locais de tratamento e garantias.</p>'],
+            ['9. Os seus direitos', '<p>Quando o responsável trata dados pessoais, dispõe dos direitos à informação, acesso, retificação, apagamento, limitação, portabilidade e oposição nos termos do RGPD. Pode reclamar junto de uma autoridade de controlo competente, especialmente no país da sua residência habitual, local de trabalho ou local da alegada infração.</p><p>Como os dados funcionais SmartRosary permanecem locais e o operador não lhes pode aceder, geralmente não os pode recuperar, exportar ou apagar remotamente. Gere-os diretamente na aplicação, navegador e dispositivo.</p>'],
+            ['10. Segurança e alterações', '<p>A comunicação utiliza as permissões e mecanismos de segurança do sistema operativo e do protocolo SmartRosary. Proteja o acesso ao telefone e às cópias.</p><p>Esta política pode ser atualizada se mudarem funções, fornecedores ou requisitos legais. A versão atual está sempre disponível neste URL.</p>'],
+            ['11. Contacto', '<p class="contact">Questões de privacidade: ' + CONTACT + '</p>']
+          ]
+        }
+      };
+
+      const selector = document.getElementById('lang');
+      const content = document.getElementById('privacy-content');
+      const label = document.getElementById('language-label');
+      const description = document.getElementById('meta-description');
+
+      function supportedLanguage(value) {
+        return Object.prototype.hasOwnProperty.call(copy, value) ? value : null;
+      }
+
+      function render(language, updateUrl) {
+        const lang = supportedLanguage(language) || 'pl';
+        const t = copy[lang];
+        document.documentElement.lang = lang;
+        document.title = t.pageTitle;
+        description.setAttribute('content', t.description);
+        label.textContent = t.language;
+        selector.value = lang;
+
+        const sections = t.sections.map(([heading, body]) =>
+          '<section><h2>' + heading + '</h2>' + body + '</section>'
+        ).join('');
+        content.innerHTML =
+          '<h1>' + t.title + '</h1>' +
+          '<p class="updated">' + t.updated + '</p>' +
+          '<div class="summary"><p>' + t.summary + '</p></div>' +
+          sections;
+
+        localStorage.setItem('sr_privacy_lang', lang);
+        if (['pl', 'en', 'de'].includes(lang)) localStorage.setItem('sr_lang', lang);
+        if (updateUrl) {
+          const url = new URL(window.location.href);
+          url.searchParams.set('lang', lang);
+          history.replaceState(null, '', url);
+        }
+      }
+
+      const requested = supportedLanguage(new URLSearchParams(location.search).get('lang'));
+      const saved = supportedLanguage(localStorage.getItem('sr_privacy_lang'));
+      const browserLanguage = supportedLanguage((navigator.language || '').slice(0, 2).toLowerCase());
+      render(requested || saved || browserLanguage || 'pl', false);
+
+      selector.addEventListener('change', function () {
+        render(selector.value, true);
+      });
+    })();
+  </script>
+</body>
+</html>

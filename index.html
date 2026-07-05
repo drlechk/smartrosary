@@ -143,9 +143,15 @@
     footer {
       padding: 1rem 1.25rem;
       text-align: center;
-      color: var(--muted);
+      color: rgba(255,255,255,0.88);
       font-size: 0.9rem;
     }
+    footer a {
+      color: inherit;
+      margin-left: 0.75rem;
+      text-underline-offset: 0.2em;
+    }
+    footer a:hover { color: #fff; }
 
     @media (max-width: 640px) {
       .actions { grid-template-columns: 1fr; }
@@ -184,6 +190,7 @@
 
   <footer>
     <span data-i18n="copyright">© 2025 SmartRosary</span>
+    <a id="privacy-link" href="privacy.html?lang=pl" data-i18n="privacy">Polityka prywatności</a>
   </footer>
 
   <script>
@@ -200,6 +207,7 @@
           intentionsEditor: 'Edytor intencji',
           instructions: 'Instrukcje (wkrótce)',
           copyright: '© 2025 SmartRosary',
+          privacy: 'Polityka prywatności',
           labelLanguage: 'Język:',
           promptChrome: 'Ta funkcja wymaga Google Chrome. Przejść do pobrania Chrome?',
           promptBluefy: 'Ta funkcja wymaga przeglądarki Bluefy na iOS. Otworzyć App Store?',
@@ -216,6 +224,7 @@
           intentionsEditor: 'Intentions editor',
           instructions: 'Instructions (coming soon)',
           copyright: '© 2025 SmartRosary',
+          privacy: 'Privacy policy',
           labelLanguage: 'Language:',
           promptChrome: 'This feature requires Google Chrome. Go to download Chrome?',
           promptBluefy: 'This feature requires the Bluefy browser on iOS. Open the App Store?',
@@ -232,6 +241,7 @@
           intentionsEditor: 'Intentionen-Editor',
           instructions: 'Anleitungen (bald verfügbar)',
           copyright: '© 2025 SmartRosary',
+          privacy: 'Datenschutz',
           labelLanguage: 'Sprache:',
           promptChrome: 'Diese Funktion erfordert Google Chrome. Zur Chrome-Downloadseite gehen?',
           promptBluefy: 'Diese Funktion erfordert den Bluefy-Browser auf iOS. App Store öffnen?',
@@ -255,6 +265,8 @@
           const key = el.getAttribute('data-i18n');
           if (dict[key]) el.textContent = dict[key];
         });
+        const privacyLink = document.getElementById('privacy-link');
+        if (privacyLink) privacyLink.href = `privacy.html?lang=${encodeURIComponent(lang)}`;
         if (label) label.textContent = dict.labelLanguage;
       }
 
