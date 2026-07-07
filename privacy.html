@@ -124,6 +124,12 @@
       text-align: center;
       font-size: 0.9rem;
     }
+    .deploy-info {
+      margin-top: 0.35rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.02em;
+      opacity: 0.78;
+    }
 
     @media (max-width: 560px) {
       header { align-items: center; }
@@ -167,7 +173,10 @@
     <article class="card" id="privacy-content"></article>
   </main>
 
-  <footer>© 2026 SmartRosary</footer>
+  <footer>
+    <span>© 2026 SmartRosary</span>
+    <div id="deployInfo" class="deploy-info" aria-label="Ostatnie wdrożenie"></div>
+  </footer>
 
   <script>
     (function () {
@@ -181,6 +190,7 @@
           pageTitle: 'Polityka prywatności – SmartRosary',
           description: 'Polityka prywatności aplikacji SmartRosary Companion, panelu internetowego i urządzenia SmartRosary.',
           language: 'Język:',
+          deployLabel: 'Ostatnie wdrożenie',
           title: 'Polityka prywatności',
           updated: 'Ostatnia aktualizacja: 6 lipca 2026 r.',
           summary: '<strong>W skrócie:</strong> SmartRosary Companion nie wymaga konta, nie zawiera reklam, analityki ani mechanizmów śledzenia. Intencje, ustawienia, historia i statystyki pozostają lokalnie w aplikacji, przeglądarce lub na różańcu. Dane urządzenia są wymieniane bezpośrednio między telefonem lub przeglądarką a urządzeniem SmartRosary przez Bluetooth Low Energy (BLE); nie są przesyłane do operatora SmartRosary.',
@@ -202,6 +212,7 @@
           pageTitle: 'Privacy Policy – SmartRosary',
           description: 'Privacy policy for the SmartRosary Companion app, web dashboard and SmartRosary device.',
           language: 'Language:',
+          deployLabel: 'Last deploy',
           title: 'Privacy Policy',
           updated: 'Last updated: 6 July 2026',
           summary: '<strong>In short:</strong> SmartRosary Companion requires no account and contains no advertising, analytics or tracking. Intentions, settings, history and statistics remain locally in the app, browser or rosary. Device data is exchanged directly between the phone or browser and the SmartRosary device via Bluetooth Low Energy (BLE); it is not transmitted to the SmartRosary operator.',
@@ -223,6 +234,7 @@
           pageTitle: 'Datenschutzerklärung – SmartRosary',
           description: 'Datenschutzerklärung für die SmartRosary Companion App, das Web-Dashboard und das SmartRosary-Gerät.',
           language: 'Sprache:',
+          deployLabel: 'Letztes Deployment',
           title: 'Datenschutzerklärung',
           updated: 'Stand: 6. Juli 2026',
           summary: '<strong>Kurz gesagt:</strong> SmartRosary Companion benötigt kein Konto und enthält weder Werbung noch Analyse- oder Trackingdienste. Intentionen, Einstellungen, Verlauf und Statistiken bleiben lokal in App, Browser oder Rosenkranz. Gerätedaten werden direkt zwischen Telefon bzw. Browser und dem SmartRosary-Gerät über Bluetooth Low Energy (BLE) ausgetauscht; sie werden nicht an den SmartRosary-Betreiber übertragen.',
@@ -244,6 +256,7 @@
           pageTitle: 'Política de privacidad – SmartRosary',
           description: 'Política de privacidad de la app SmartRosary Companion, el panel web y el dispositivo SmartRosary.',
           language: 'Idioma:',
+          deployLabel: 'Último despliegue',
           title: 'Política de privacidad',
           updated: 'Última actualización: 6 de julio de 2026',
           summary: '<strong>En resumen:</strong> SmartRosary Companion no requiere una cuenta y no contiene publicidad, analítica ni seguimiento. Las intenciones, los ajustes, el historial y las estadísticas permanecen localmente en la app, el navegador o el rosario. Los datos del dispositivo se intercambian directamente entre el teléfono o navegador y el dispositivo SmartRosary mediante Bluetooth Low Energy (BLE); no se transmiten al operador de SmartRosary.',
@@ -265,6 +278,7 @@
           pageTitle: 'Politique de confidentialité – SmartRosary',
           description: 'Politique de confidentialité de l’app SmartRosary Companion, du tableau de bord web et de l’appareil SmartRosary.',
           language: 'Langue :',
+          deployLabel: 'Dernier déploiement',
           title: 'Politique de confidentialité',
           updated: 'Dernière mise à jour : 6 juillet 2026',
           summary: '<strong>En bref :</strong> SmartRosary Companion ne nécessite aucun compte et ne contient ni publicité, ni analyse, ni suivi. Les intentions, réglages, historiques et statistiques restent localement dans l’app, le navigateur ou le chapelet. Les données de l’appareil sont échangées directement entre le téléphone ou navigateur et l’appareil SmartRosary par Bluetooth Low Energy (BLE) ; elles ne sont pas transmises à l’exploitant de SmartRosary.',
@@ -286,6 +300,7 @@
           pageTitle: 'Política de privacidade – SmartRosary',
           description: 'Política de privacidade da aplicação SmartRosary Companion, painel web e dispositivo SmartRosary.',
           language: 'Idioma:',
+          deployLabel: 'Última publicação',
           title: 'Política de privacidade',
           updated: 'Última atualização: 6 de julho de 2026',
           summary: '<strong>Em resumo:</strong> A SmartRosary Companion não requer conta e não contém publicidade, análise ou rastreamento. Intenções, definições, histórico e estatísticas permanecem localmente na aplicação, no navegador ou no rosário. Os dados do dispositivo são trocados diretamente entre o telefone ou navegador e o dispositivo SmartRosary por Bluetooth Low Energy (BLE); não são transmitidos ao operador SmartRosary.',
@@ -322,6 +337,7 @@
         description.setAttribute('content', t.description);
         label.textContent = t.language;
         selector.value = lang;
+        setDeployInfo(t);
 
         const sections = t.sections.map(([heading, body]) =>
           '<section><h2>' + heading + '</h2>' + body + '</section>'
@@ -339,6 +355,24 @@
           url.searchParams.set('lang', lang);
           history.replaceState(null, '', url);
         }
+      }
+
+      function setDeployInfo(t) {
+        const deployInfo = document.getElementById('deployInfo');
+        if (!deployInfo) return;
+        const ts = new Date(document.lastModified);
+        const formatted = isNaN(ts.getTime())
+          ? ''
+          : ts.toLocaleString(undefined, {
+              year: 'numeric',
+              month: 'short',
+              day: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit'
+            });
+        const labelText = t.deployLabel || 'Last deploy';
+        deployInfo.setAttribute('aria-label', labelText);
+        deployInfo.textContent = formatted ? `${labelText}: ${formatted}` : '';
       }
 
       const requested = supportedLanguage(new URLSearchParams(location.search).get('lang'));

@@ -255,6 +255,12 @@
       color: rgba(255,255,255,0.88);
       font-size: 0.9rem;
     }
+    .deploy-info {
+      margin-top: 0.35rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.02em;
+      opacity: 0.78;
+    }
     footer a {
       color: inherit;
       margin-left: 0.75rem;
@@ -351,8 +357,9 @@
   </main>
 
   <footer>
-    <span data-i18n="copyright">© 2025 SmartRosary</span>
+    <span data-i18n="copyright">© 2026 SmartRosary</span>
     <a id="privacy-link" href="privacy.html?lang=pl" data-i18n="privacy">Polityka prywatności</a>
+    <div id="deployInfo" class="deploy-info" aria-label="Ostatnie wdrożenie"></div>
   </footer>
 
   <script src="app-changelog.js"></script>
@@ -380,7 +387,8 @@
           changelogVersionLabel: 'Wersja:',
           changelogDateLabel: 'Data',
           changelogEmpty: 'Brak wpisów w historii zmian.',
-          copyright: '© 2025 SmartRosary',
+          copyright: '© 2026 SmartRosary',
+          deployLabel: 'Ostatnie wdrożenie',
           privacy: 'Polityka prywatności'
         },
         en: {
@@ -402,7 +410,8 @@
           changelogVersionLabel: 'Version:',
           changelogDateLabel: 'Date',
           changelogEmpty: 'No changelog entries.',
-          copyright: '© 2025 SmartRosary',
+          copyright: '© 2026 SmartRosary',
+          deployLabel: 'Last deploy',
           privacy: 'Privacy policy'
         },
         de: {
@@ -424,7 +433,8 @@
           changelogVersionLabel: 'Version:',
           changelogDateLabel: 'Datum',
           changelogEmpty: 'Keine Änderungsverlauf-Einträge.',
-          copyright: '© 2025 SmartRosary',
+          copyright: '© 2026 SmartRosary',
+          deployLabel: 'Letztes Deployment',
           privacy: 'Datenschutz'
         },
         fr: {
@@ -446,7 +456,8 @@
           changelogVersionLabel: 'Version :',
           changelogDateLabel: 'Date',
           changelogEmpty: 'Aucune entrée dans l’historique.',
-          copyright: '© 2025 SmartRosary',
+          copyright: '© 2026 SmartRosary',
+          deployLabel: 'Dernier déploiement',
           privacy: 'Politique de confidentialité'
         },
         es: {
@@ -468,7 +479,8 @@
           changelogVersionLabel: 'Versión:',
           changelogDateLabel: 'Fecha',
           changelogEmpty: 'No hay entradas en el historial.',
-          copyright: '© 2025 SmartRosary',
+          copyright: '© 2026 SmartRosary',
+          deployLabel: 'Último despliegue',
           privacy: 'Política de privacidad'
         },
         pt: {
@@ -490,7 +502,8 @@
           changelogVersionLabel: 'Versão:',
           changelogDateLabel: 'Data',
           changelogEmpty: 'Sem entradas no histórico.',
-          copyright: '© 2025 SmartRosary',
+          copyright: '© 2026 SmartRosary',
+          deployLabel: 'Última publicação',
           privacy: 'Política de privacidade'
         }
       };
@@ -518,7 +531,26 @@
         if (label) label.textContent = dict.labelLanguage;
         const privacyLink = $('#privacy-link');
         if (privacyLink) privacyLink.href = `privacy.html?lang=${encodeURIComponent(lang)}`;
+        setDeployInfo(dict);
         renderChangelog();
+      }
+
+      function setDeployInfo(dict) {
+        const deployInfo = $('#deployInfo');
+        if (!deployInfo) return;
+        const ts = new Date(document.lastModified);
+        const formatted = isNaN(ts.getTime())
+          ? ''
+          : ts.toLocaleString(undefined, {
+              year: 'numeric',
+              month: 'short',
+              day: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit'
+            });
+        const labelText = dict.deployLabel || 'Last deploy';
+        deployInfo.setAttribute('aria-label', labelText);
+        deployInfo.textContent = formatted ? `${labelText}: ${formatted}` : '';
       }
 
       function populateReleaseMeta() {
