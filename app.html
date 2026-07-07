@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SmartRosary Companion</title>
+  <meta name="description" content="SmartRosary Companion – aplikacja mobilna dla urządzenia Smart Rosary. Pobierz APK na Androida. iOS wkrótce.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    :root {
+      --bg: linear-gradient(180deg, #0f5aa0 0%, #0b4f8f 55%, #09457e 100%);
+      --text: #14223d;
+      --muted: #5b6b86;
+      --card: #ffffffcc;
+      --surface: #ffffff;
+      --border: #b7d6f5;
+      --accent: #0974cc;
+      --accent-dark: #075b9f;
+      --accent-contrast: #ffffff;
+      --success: #167c3b;
+      --soon: #7c2d12;
+      --soon-bg: #fff7ed;
+    }
+
+    * { box-sizing: border-box; }
+    html { min-height: 100%; background: var(--bg); }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: var(--bg);
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      max-width: 960px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .home-link {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .home-link img { width: 28px; height: 28px; }
+
+    .lang {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    select {
+      padding: 0.4rem 0.6rem;
+      border: 1px solid rgba(255,255,255,0.6);
+      border-radius: 8px;
+      background: transparent;
+      color: #fff;
+      font-size: 0.95rem;
+    }
+    select:focus { outline: 2px solid rgba(255,255,255,0.85); outline-offset: 2px; }
+    select option { color: #111; }
+
+    main {
+      display: grid;
+      place-items: center;
+      padding: 1rem 1.25rem 3rem;
+      flex: 1;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 960px;
+      background: var(--card);
+      backdrop-filter: blur(6px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px #00000014;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    .hero-icon {
+      width: 86px;
+      height: 86px;
+    }
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1;
+      margin: 0 0 0.65rem;
+    }
+    .lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.5;
+    }
+
+    .platforms {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1.75rem;
+    }
+
+    .platform-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      box-shadow: 0 2px 8px #0000000a;
+    }
+
+    .platform-title {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin: 0;
+    }
+    .platform-title svg {
+      width: 32px;
+      height: 32px;
+      flex: 0 0 auto;
+      color: var(--accent);
+    }
+
+    .status {
+      align-self: flex-start;
+      border-radius: 999px;
+      padding: 0.3rem 0.65rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      background: #edf7f0;
+      color: var(--success);
+    }
+    .status.soon {
+      background: var(--soon-bg);
+      color: var(--soon);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      padding: 0.85rem 1rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-weight: 700;
+      transition: transform 0.06s ease, box-shadow 0.2s ease;
+      box-shadow: 0 2px 8px #0000000a;
+    }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 4px 14px #00000014; }
+    .btn.primary { background: var(--accent); color: var(--accent-contrast); border-color: transparent; }
+    .btn.primary:hover { background: var(--accent-dark); }
+    .btn.disabled { background: #f9fafb; color: #9ca3af; border-style: dashed; cursor: not-allowed; pointer-events: none; }
+
+    .meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      overflow-wrap: anywhere;
+    }
+
+    .changelog {
+      margin-top: 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem;
+      box-shadow: 0 2px 8px #0000000a;
+    }
+    .changelog h2 {
+      margin: 0 0 0.8rem;
+      text-align: center;
+      font-size: 1.35rem;
+    }
+    .changelog-controls {
+      display: grid;
+      grid-template-columns: 160px minmax(0, 1fr);
+      gap: 10px;
+      align-items: center;
+      margin-top: 12px;
+    }
+    .changelog-controls select {
+      width: 100%;
+      max-width: 100%;
+      background: var(--surface);
+      color: var(--text);
+      border-color: var(--border);
+    }
+    .changelog-meta {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+    .changelog-list {
+      margin: 12px 0 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    .changelog-list li {
+      display: grid;
+      grid-template-columns: 90px minmax(0, 1fr);
+      gap: 10px;
+      padding: 8px 0;
+      border-top: 1px solid var(--border);
+    }
+    .change-type {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.7;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .change-text { min-width: 0; overflow-wrap: anywhere; }
+
+    footer {
+      padding: 1rem 1.25rem;
+      text-align: center;
+      color: rgba(255,255,255,0.88);
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: inherit;
+      margin-left: 0.75rem;
+      text-underline-offset: 0.2em;
+    }
+    footer a:hover { color: #fff; }
+
+    @media (max-width: 640px) {
+      header { align-items: flex-start; flex-direction: column; }
+      .hero { grid-template-columns: 1fr; text-align: center; }
+      .hero-icon { margin: 0 auto; }
+      .card { padding: 1.25rem; }
+      .changelog-controls { grid-template-columns: 1fr; gap: 6px; }
+      .changelog-list li { grid-template-columns: 1fr; gap: 2px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="home-link" href="index.html">
+      <img src="favicon.svg" alt="" role="presentation">
+      <span>Smart Rosary</span>
+    </a>
+    <div class="lang">
+      <label id="language-label" for="lang">Język:</label>
+      <select id="lang" aria-labelledby="language-label">
+        <option value="pl">Polski</option>
+        <option value="en">English</option>
+        <option value="de">Deutsch</option>
+        <option value="fr">Français</option>
+        <option value="es">Español</option>
+        <option value="pt">Português</option>
+      </select>
+    </div>
+  </header>
+
+  <main>
+    <section class="card">
+      <div class="hero">
+        <img class="hero-icon" src="favicon.svg" alt="" role="presentation">
+        <div>
+          <h1>SmartRosary Companion</h1>
+          <p class="lead" data-i18n="lead">Aplikacja mobilna dla urządzenia Smart Rosary. Łączy się z różańcem przez Bluetooth i pomaga zarządzać ustawieniami, intencjami, historią modlitwy, statystykami oraz aktualizacjami.</p>
+        </div>
+      </div>
+
+      <div class="platforms">
+        <article class="platform-card">
+          <h2 class="platform-title">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M17.6 9.48 19.44 6.3a.75.75 0 1 0-1.3-.75l-1.86 3.22A10.1 10.1 0 0 0 12 7.85c-1.53 0-2.98.33-4.28.92L5.86 5.55a.75.75 0 1 0-1.3.75L6.4 9.48C3.8 11.06 2 13.76 2 16.88h20c0-3.12-1.8-5.82-4.4-7.4ZM7.75 14.25a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm8.5 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM4 18.38h2v3.12a1.5 1.5 0 0 1-3 0v-1.62c0-.83.67-1.5 1.5-1.5H4Zm14 0h2a1.5 1.5 0 0 1 1.5 1.5v1.62a1.5 1.5 0 0 1-3 0v-3.12H18ZM7.5 18.38h9v3.12a2 2 0 0 1-2 2h-5a2 2 0 0 1-2-2v-3.12Z"/>
+            </svg>
+            <span data-i18n="androidTitle">Android</span>
+          </h2>
+          <span class="status" data-i18n="available">Dostępne</span>
+          <p class="meta" data-i18n="androidText">Pobierz aktualny plik APK i zainstaluj go na telefonie z Androidem.</p>
+          <a class="btn primary" id="apkDownload" href="downloads/smartrosary-companion-latest.apk" download data-i18n="downloadApk">Pobierz APK</a>
+          <p class="meta">
+            <span data-i18n="versionLabel">Wersja</span>:
+            <strong id="appVersion">v1.0.4</strong>
+            ·
+            <span data-i18n="sizeLabel">Rozmiar</span>:
+            <span id="apkSize">59 MB</span>
+          </p>
+          <p class="meta">
+            <span data-i18n="shaLabel">SHA-256</span>:
+            <code id="apkSha">049d891c88cbb2aee1afe278f59a5839c186a89b761855254f99f0441141ae1f</code>
+          </p>
+        </article>
+
+        <article class="platform-card">
+          <h2 class="platform-title">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M17.05 12.56c-.02-2.18 1.78-3.24 1.86-3.29-1.03-1.5-2.62-1.7-3.17-1.72-1.34-.14-2.64.79-3.32.79-.7 0-1.75-.77-2.89-.75-1.47.02-2.84.88-3.6 2.22-1.55 2.68-.4 6.62 1.09 8.79.75 1.07 1.62 2.26 2.76 2.22 1.11-.05 1.53-.71 2.88-.71 1.33 0 1.72.71 2.9.68 1.2-.02 1.96-1.07 2.68-2.15.86-1.23 1.2-2.45 1.21-2.51-.03-.01-2.37-.9-2.4-3.57ZM14.86 6.13c.61-.76 1.03-1.8.91-2.85-.88.04-1.98.61-2.62 1.35-.57.66-1.08 1.74-.94 2.76.99.08 2.01-.5 2.65-1.26Z"/>
+            </svg>
+            <span data-i18n="iosTitle">iOS</span>
+          </h2>
+          <span class="status soon" data-i18n="comingSoon">Wkrótce</span>
+          <p class="meta" data-i18n="iosText">Aplikacja na iPhone'a jest przygotowywana i pojawi się po zakończeniu procesu Apple/TestFlight.</p>
+          <a class="btn disabled" href="#" role="button" aria-disabled="true" data-i18n="appStoreSoon">App Store wkrótce</a>
+        </article>
+      </div>
+
+      <section class="changelog" aria-labelledby="changelogTitle">
+        <h2 id="changelogTitle" data-i18n="changelogTitle">Historia zmian aplikacji</h2>
+        <div class="changelog-controls">
+          <label for="changelogVersion" id="changelogVersionLabel" data-i18n="changelogVersionLabel">Wersja:</label>
+          <select id="changelogVersion"></select>
+        </div>
+        <p class="changelog-meta" id="changelogMeta"></p>
+        <ul class="changelog-list" id="changelogList"></ul>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <span data-i18n="copyright">© 2025 SmartRosary</span>
+    <a id="privacy-link" href="privacy.html?lang=pl" data-i18n="privacy">Polityka prywatności</a>
+  </footer>
+
+  <script src="app-changelog.js"></script>
+  <script>
+    (function () {
+      const DEFAULT = 'pl';
+      const BRAND = 'SmartRosary Companion';
+      const strings = {
+        pl: {
+          description: 'SmartRosary Companion – aplikacja mobilna dla urządzenia Smart Rosary. Pobierz APK na Androida. iOS wkrótce.',
+          labelLanguage: 'Język:',
+          lead: 'Aplikacja mobilna dla urządzenia Smart Rosary. Łączy się z różańcem przez Bluetooth i pomaga zarządzać ustawieniami, intencjami, historią modlitwy, statystykami oraz aktualizacjami.',
+          androidTitle: 'Android',
+          iosTitle: 'iOS',
+          available: 'Dostępne',
+          comingSoon: 'Wkrótce',
+          androidText: 'Pobierz aktualny plik APK i zainstaluj go na telefonie z Androidem.',
+          iosText: 'Aplikacja na iPhone’a jest przygotowywana i pojawi się po zakończeniu procesu Apple/TestFlight.',
+          downloadApk: 'Pobierz APK',
+          appStoreSoon: 'App Store wkrótce',
+          versionLabel: 'Wersja',
+          sizeLabel: 'Rozmiar',
+          shaLabel: 'SHA-256',
+          changelogTitle: 'Historia zmian aplikacji',
+          changelogVersionLabel: 'Wersja:',
+          changelogDateLabel: 'Data',
+          changelogEmpty: 'Brak wpisów w historii zmian.',
+          copyright: '© 2025 SmartRosary',
+          privacy: 'Polityka prywatności'
+        },
+        en: {
+          description: 'SmartRosary Companion – mobile app for the Smart Rosary device. Download the Android APK. iOS coming soon.',
+          labelLanguage: 'Language:',
+          lead: 'Mobile app for the Smart Rosary device. It connects to the rosary by Bluetooth and helps manage settings, intentions, prayer history, statistics, and updates.',
+          androidTitle: 'Android',
+          iosTitle: 'iOS',
+          available: 'Available',
+          comingSoon: 'Coming soon',
+          androidText: 'Download the current APK file and install it on your Android phone.',
+          iosText: 'The iPhone app is being prepared and will be available after the Apple/TestFlight process is complete.',
+          downloadApk: 'Download APK',
+          appStoreSoon: 'App Store coming soon',
+          versionLabel: 'Version',
+          sizeLabel: 'Size',
+          shaLabel: 'SHA-256',
+          changelogTitle: 'App changelog',
+          changelogVersionLabel: 'Version:',
+          changelogDateLabel: 'Date',
+          changelogEmpty: 'No changelog entries.',
+          copyright: '© 2025 SmartRosary',
+          privacy: 'Privacy policy'
+        },
+        de: {
+          description: 'SmartRosary Companion – mobile App für das Smart-Rosary-Gerät. Android-APK herunterladen. iOS folgt bald.',
+          labelLanguage: 'Sprache:',
+          lead: 'Mobile App für das Smart-Rosary-Gerät. Sie verbindet sich per Bluetooth mit dem Rosenkranz und verwaltet Einstellungen, Intentionen, Gebetsverlauf, Statistiken und Updates.',
+          androidTitle: 'Android',
+          iosTitle: 'iOS',
+          available: 'Verfügbar',
+          comingSoon: 'Bald verfügbar',
+          androidText: 'Laden Sie die aktuelle APK-Datei herunter und installieren Sie sie auf Ihrem Android-Telefon.',
+          iosText: 'Die iPhone-App wird vorbereitet und erscheint nach Abschluss des Apple/TestFlight-Prozesses.',
+          downloadApk: 'APK herunterladen',
+          appStoreSoon: 'App Store bald verfügbar',
+          versionLabel: 'Version',
+          sizeLabel: 'Größe',
+          shaLabel: 'SHA-256',
+          changelogTitle: 'App-Änderungsverlauf',
+          changelogVersionLabel: 'Version:',
+          changelogDateLabel: 'Datum',
+          changelogEmpty: 'Keine Änderungsverlauf-Einträge.',
+          copyright: '© 2025 SmartRosary',
+          privacy: 'Datenschutz'
+        },
+        fr: {
+          description: 'SmartRosary Companion – application mobile pour l’appareil Smart Rosary. Téléchargez l’APK Android. iOS bientôt disponible.',
+          labelLanguage: 'Langue :',
+          lead: 'Application mobile pour l’appareil Smart Rosary. Elle se connecte au chapelet par Bluetooth et aide à gérer les réglages, les intentions, l’historique de prière, les statistiques et les mises à jour.',
+          androidTitle: 'Android',
+          iosTitle: 'iOS',
+          available: 'Disponible',
+          comingSoon: 'Bientôt disponible',
+          androidText: 'Téléchargez le fichier APK actuel et installez-le sur votre téléphone Android.',
+          iosText: 'L’application iPhone est en préparation et sera disponible après la procédure Apple/TestFlight.',
+          downloadApk: 'Télécharger l’APK',
+          appStoreSoon: 'App Store bientôt',
+          versionLabel: 'Version',
+          sizeLabel: 'Taille',
+          shaLabel: 'SHA-256',
+          changelogTitle: 'Historique des changements',
+          changelogVersionLabel: 'Version :',
+          changelogDateLabel: 'Date',
+          changelogEmpty: 'Aucune entrée dans l’historique.',
+          copyright: '© 2025 SmartRosary',
+          privacy: 'Politique de confidentialité'
+        },
+        es: {
+          description: 'SmartRosary Companion – app móvil para el dispositivo Smart Rosary. Descarga el APK de Android. iOS próximamente.',
+          labelLanguage: 'Idioma:',
+          lead: 'App móvil para el dispositivo Smart Rosary. Se conecta al rosario por Bluetooth y ayuda a gestionar ajustes, intenciones, historial de oración, estadísticas y actualizaciones.',
+          androidTitle: 'Android',
+          iosTitle: 'iOS',
+          available: 'Disponible',
+          comingSoon: 'Próximamente',
+          androidText: 'Descarga el archivo APK actual e instálalo en tu teléfono Android.',
+          iosText: 'La app para iPhone está en preparación y estará disponible después del proceso de Apple/TestFlight.',
+          downloadApk: 'Descargar APK',
+          appStoreSoon: 'App Store próximamente',
+          versionLabel: 'Versión',
+          sizeLabel: 'Tamaño',
+          shaLabel: 'SHA-256',
+          changelogTitle: 'Historial de cambios',
+          changelogVersionLabel: 'Versión:',
+          changelogDateLabel: 'Fecha',
+          changelogEmpty: 'No hay entradas en el historial.',
+          copyright: '© 2025 SmartRosary',
+          privacy: 'Política de privacidad'
+        },
+        pt: {
+          description: 'SmartRosary Companion – app móvel para o dispositivo Smart Rosary. Transfira o APK Android. iOS em breve.',
+          labelLanguage: 'Idioma:',
+          lead: 'App móvel para o dispositivo Smart Rosary. Liga-se ao rosário por Bluetooth e ajuda a gerir definições, intenções, histórico de oração, estatísticas e atualizações.',
+          androidTitle: 'Android',
+          iosTitle: 'iOS',
+          available: 'Disponível',
+          comingSoon: 'Em breve',
+          androidText: 'Transfira o ficheiro APK atual e instale-o no seu telemóvel Android.',
+          iosText: 'A app para iPhone está a ser preparada e ficará disponível após o processo Apple/TestFlight.',
+          downloadApk: 'Transferir APK',
+          appStoreSoon: 'App Store em breve',
+          versionLabel: 'Versão',
+          sizeLabel: 'Tamanho',
+          shaLabel: 'SHA-256',
+          changelogTitle: 'Histórico de alterações',
+          changelogVersionLabel: 'Versão:',
+          changelogDateLabel: 'Data',
+          changelogEmpty: 'Sem entradas no histórico.',
+          copyright: '© 2025 SmartRosary',
+          privacy: 'Política de privacidade'
+        }
+      };
+
+      const $ = (sel) => document.querySelector(sel);
+      const langSelect = $('#lang');
+      const label = $('#language-label');
+      const changelogEntries = Array.isArray(window.SmartRosaryAppChangelog) ? window.SmartRosaryAppChangelog : [];
+
+      function dictFor(lang) {
+        return strings[lang] || strings[DEFAULT];
+      }
+
+      function applyLang(lang) {
+        const dict = dictFor(lang);
+        document.documentElement.lang = lang;
+        document.title = BRAND;
+        const description = document.querySelector('meta[name="description"]');
+        if (description) description.setAttribute('content', dict.description);
+
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (dict[key]) el.textContent = dict[key];
+        });
+        if (label) label.textContent = dict.labelLanguage;
+        const privacyLink = $('#privacy-link');
+        if (privacyLink) privacyLink.href = `privacy.html?lang=${encodeURIComponent(lang)}`;
+        renderChangelog();
+      }
+
+      function populateReleaseMeta() {
+        const apk = window.SmartRosaryAppApk || {};
+        const download = $('#apkDownload');
+        if (download && apk.latest) download.href = apk.latest;
+        const version = $('#appVersion');
+        if (version) version.textContent = window.SmartRosaryAppVersion || 'v1.0.4';
+        const size = $('#apkSize');
+        if (size && apk.size) size.textContent = apk.size;
+        const sha = $('#apkSha');
+        if (sha && apk.sha256) sha.textContent = apk.sha256;
+      }
+
+      function populateChangelog() {
+        const select = $('#changelogVersion');
+        if (!select || !changelogEntries.length) return;
+        select.innerHTML = '';
+        changelogEntries.forEach(entry => {
+          const option = document.createElement('option');
+          option.value = entry.version;
+          option.textContent = entry.version;
+          select.appendChild(option);
+        });
+        const preferred = changelogEntries.some(entry => entry.version === window.SmartRosaryAppVersion)
+          ? window.SmartRosaryAppVersion
+          : changelogEntries[0].version;
+        select.value = preferred;
+        select.addEventListener('change', renderChangelog);
+        renderChangelog();
+      }
+
+      function renderChangelog() {
+        const select = $('#changelogVersion');
+        const list = $('#changelogList');
+        const meta = $('#changelogMeta');
+        if (!select || !list || !meta) return;
+        const dict = dictFor(langSelect.value || DEFAULT);
+        const entry = changelogEntries.find(item => item.version === select.value) || changelogEntries[0];
+        list.innerHTML = '';
+
+        if (!entry) {
+          meta.textContent = dict.changelogEmpty;
+          return;
+        }
+
+        meta.textContent = `${dict.changelogDateLabel}: ${entry.date}`;
+        entry.changes.forEach(change => {
+          const item = document.createElement('li');
+          const type = document.createElement('span');
+          type.className = 'change-type';
+          type.textContent = change.type;
+          const text = document.createElement('span');
+          text.className = 'change-text';
+          text.textContent = change.text;
+          item.appendChild(type);
+          item.appendChild(text);
+          list.appendChild(item);
+        });
+      }
+
+      const saved = localStorage.getItem('sr_lang');
+      const startLang = (saved && strings[saved]) ? saved : DEFAULT;
+      langSelect.value = startLang;
+      populateReleaseMeta();
+      populateChangelog();
+      applyLang(startLang);
+
+      langSelect.addEventListener('change', () => {
+        const value = langSelect.value;
+        localStorage.setItem('sr_lang', value);
+        applyLang(value);
+      });
+    })();
+  </script>
+</body>
+</html>
