@@ -1,13 +1,23 @@
-window.SmartRosaryAppVersion = "v1.0.4";
-window.SmartRosaryAppBuild = "5";
+window.SmartRosaryAppVersion = "v1.0.5";
+window.SmartRosaryAppBuild = "6";
 window.SmartRosaryAppApk = {
   latest: "downloads/smartrosary-companion-latest.apk",
-  versioned: "downloads/smartrosary-companion-v1.0.4.apk",
+  versioned: "downloads/smartrosary-companion-v1.0.5.apk",
   size: "59 MB",
-  sha256: "049d891c88cbb2aee1afe278f59a5839c186a89b761855254f99f0441141ae1f"
+  sha256: "886463608fda41bcc07594d59d4342891b8544524fef2499bec251fec0245413"
 };
 
 window.SmartRosaryAppChangelog = [
+  {
+    version: "v1.0.5",
+    date: "2026-07-10",
+    changes: [
+      { type: "Added", text: "Firmware-update-only BLE compatibility for legacy rosaries that expose the original OTA write and READY status characteristics but predate device INFO, consent, and app-pairing characteristics." },
+      { type: "Added", text: "First-run home guidance with a direct BLE search action when no rosary has been paired yet." },
+      { type: "Fixed", text: "Rosary scans now finish shortly after a rosary advertisement is found instead of always waiting for the full timeout." },
+      { type: "Fixed", text: "App startup reconnects to the preferred paired rosary or falls back to another paired rosary that is online." }
+    ]
+  },
   {
     version: "v1.0.4",
     date: "2026-07-07",

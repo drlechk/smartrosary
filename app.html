@@ -320,14 +320,14 @@
           <a class="btn primary" id="apkDownload" href="downloads/smartrosary-companion-latest.apk" download data-i18n="downloadApk">Pobierz APK</a>
           <p class="meta">
             <span data-i18n="versionLabel">Wersja</span>:
-            <strong id="appVersion">v1.0.4</strong>
+            <strong id="appVersion">v1.0.5</strong>
             ·
             <span data-i18n="sizeLabel">Rozmiar</span>:
             <span id="apkSize">59 MB</span>
           </p>
           <p class="meta">
             <span data-i18n="shaLabel">SHA-256</span>:
-            <code id="apkSha">049d891c88cbb2aee1afe278f59a5839c186a89b761855254f99f0441141ae1f</code>
+            <code id="apkSha">886463608fda41bcc07594d59d4342891b8544524fef2499bec251fec0245413</code>
           </p>
         </article>
 
@@ -558,7 +558,7 @@
         const download = $('#apkDownload');
         if (download && apk.latest) download.href = apk.latest;
         const version = $('#appVersion');
-        if (version) version.textContent = window.SmartRosaryAppVersion || 'v1.0.4';
+        if (version) version.textContent = window.SmartRosaryAppVersion || 'v1.0.5';
         const size = $('#apkSize');
         if (size && apk.size) size.textContent = apk.size;
         const sha = $('#apkSha');
