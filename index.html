@@ -105,7 +105,15 @@
       margin-top: 1.75rem;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      align-items: start;
       gap: 0.75rem;
+    }
+
+    .action-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      min-width: 0;
     }
 
     .btn {
@@ -115,6 +123,7 @@
       gap: 0.5rem;
       text-decoration: none;
       padding: 0.85rem 1rem;
+      min-height: 48px;
       border-radius: 10px;
       border: 1px solid var(--border);
       background: white;
@@ -126,6 +135,14 @@
     .btn:hover { transform: translateY(-1px); box-shadow: 0 4px 14px #00000014; }
     .btn.primary { background: var(--accent); color: var(--accent-contrast); border-color: transparent; }
     .btn.disabled { background: #f9fafb; color: #9ca3af; border-style: dashed; cursor: not-allowed; pointer-events: none; }
+
+    .howto-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.35;
+      text-align: center;
+    }
 
     .notice {
       margin-top: 1rem;
@@ -160,8 +177,126 @@
     footer a:hover { color: #fff; }
 
     @media (max-width: 640px) {
-      .actions { grid-template-columns: 1fr; }
-      .hero h2 { font-size: 1.5rem; }
+      header {
+        padding: 0.65rem 0.9rem;
+      }
+
+      main {
+        padding: 1.85rem 0.85rem 0;
+        place-items: start center;
+      }
+
+      .card {
+        padding: 1rem;
+        border-radius: 12px;
+      }
+
+      .hero {
+        margin-bottom: 0.85rem;
+      }
+
+      .hero .site-title {
+        font-size: 1.55rem;
+        margin-bottom: 0.3rem;
+      }
+
+      .hero .hero-icon {
+        width: 52px;
+        height: 52px;
+        margin-bottom: 0.25rem;
+      }
+
+      .hero .tagline {
+        font-size: 0.92rem;
+        line-height: 1.25;
+      }
+
+      .actions {
+        grid-template-columns: 1fr;
+        margin-top: 0.85rem;
+        gap: 0.48rem;
+      }
+
+      .action-stack {
+        gap: 0.28rem;
+      }
+
+      .btn {
+        min-height: 40px;
+        padding: 0.55rem 0.8rem;
+        font-size: 0.92rem;
+      }
+
+      .howto-note {
+        font-size: 0.72rem;
+        line-height: 1.18;
+      }
+
+      footer {
+        padding: 0.55rem 0.9rem;
+        font-size: 0.78rem;
+      }
+
+      .deploy-info {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) and (max-height: 720px) and (orientation: portrait) {
+      header {
+        padding-block: 0.45rem;
+      }
+
+      main {
+        padding-block: 1.2rem 0;
+      }
+
+      .card {
+        padding: 0.75rem;
+      }
+
+      .hero {
+        margin-bottom: 0.55rem;
+      }
+
+      .hero .site-title {
+        font-size: 1.35rem;
+        margin-bottom: 0.2rem;
+      }
+
+      .hero .hero-icon {
+        width: 38px;
+        height: 38px;
+        margin-bottom: 0.15rem;
+      }
+
+      .hero .tagline {
+        font-size: 0.82rem;
+      }
+
+      .actions {
+        margin-top: 0.55rem;
+        gap: 0.35rem;
+      }
+
+      .btn {
+        min-height: 36px;
+        padding-block: 0.42rem;
+      }
+
+      .howto-note {
+        font-size: 0.68rem;
+      }
+
+      footer {
+        padding-block: 0.35rem;
+      }
+    }
+
+    @media (min-width: 900px) {
+      .card { max-width: 1120px; }
+      .actions { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .actions .btn { white-space: nowrap; }
     }
   </style>
 </head>
@@ -192,7 +327,10 @@
         <a class="btn" id="companion-app" href="app.html" data-i18n="companionApp">Aplikacja mobilna</a>
         <a class="btn" id="installer" href="https://drlechk.github.io/smartrosary-web-installer/" target="_blank" rel="noopener" data-i18n="installer">Instalator / Aktualizacje FW</a>
         <a class="btn" id="intentions-editor" href="https://drlechk.github.io/smartrosary-intentions-editor/" target="_blank" rel="noopener" data-i18n="intentionsEditor">Edytor intencji</a>
-        <a class="btn disabled" id="instructions" href="#" role="button" aria-disabled="true" data-i18n="instructions">Instrukcje (wkrótce)</a>
+        <div class="action-stack">
+          <a class="btn" id="howto" href="https://drlechk.github.io/smartrosary-howto/howto/010_onoff.html?lang=pl" target="_blank" rel="noopener" data-i18n="howto">Instrukcje</a>
+          <p class="howto-note" data-i18n="howtoNote">Instrukcje nie są jeszcze kompletne i są nadal rozwijane.</p>
+        </div>
       </div>
       <div id="compat-notice" class="notice" role="status" aria-live="polite"></div>
     </section>
@@ -218,7 +356,8 @@
           companionApp: 'Aplikacja mobilna',
           installer: 'Instalator / Aktualizacje FW',
           intentionsEditor: 'Edytor intencji',
-          instructions: 'Instrukcje (wkrótce)',
+          howto: 'Instrukcje',
+          howtoNote: 'Instrukcje nie są jeszcze kompletne i są nadal rozwijane.',
           copyright: '© 2026 SmartRosary',
           privacy: 'Polityka prywatności',
           deployLabel: 'Ostatnie wdrożenie',
@@ -238,7 +377,8 @@
           companionApp: 'Mobile app',
           installer: 'Installer / Firmware Updates',
           intentionsEditor: 'Intentions editor',
-          instructions: 'Instructions (coming soon)',
+          howto: 'How-to',
+          howtoNote: 'The how-to is not complete yet and is still being developed.',
           copyright: '© 2026 SmartRosary',
           privacy: 'Privacy policy',
           deployLabel: 'Last deploy',
@@ -258,7 +398,8 @@
           companionApp: 'Mobile App',
           installer: 'Installer / Firmware-Updates',
           intentionsEditor: 'Intentionen-Editor',
-          instructions: 'Anleitungen (bald verfügbar)',
+          howto: 'Anleitung',
+          howtoNote: 'Die Anleitung ist noch nicht vollständig und wird weiterentwickelt.',
           copyright: '© 2026 SmartRosary',
           privacy: 'Datenschutz',
           deployLabel: 'Letztes Deployment',
@@ -278,7 +419,8 @@
           companionApp: 'Application mobile',
           installer: 'Installateur / Mises à jour du firmware',
           intentionsEditor: 'Éditeur d’intentions',
-          instructions: 'Instructions (bientôt disponibles)',
+          howto: 'Guide',
+          howtoNote: 'Le guide n’est pas encore complet et continue d’être développé.',
           copyright: '© 2026 SmartRosary',
           privacy: 'Politique de confidentialité',
           deployLabel: 'Dernier déploiement',
@@ -298,7 +440,8 @@
           companionApp: 'App móvil',
           installer: 'Instalador / Actualizaciones de firmware',
           intentionsEditor: 'Editor de intenciones',
-          instructions: 'Instrucciones (próximamente)',
+          howto: 'Guía',
+          howtoNote: 'La guía aún no está completa y sigue en desarrollo.',
           copyright: '© 2026 SmartRosary',
           privacy: 'Política de privacidad',
           deployLabel: 'Último despliegue',
@@ -318,7 +461,8 @@
           companionApp: 'App móvel',
           installer: 'Instalador / Atualizações de firmware',
           intentionsEditor: 'Editor de intenções',
-          instructions: 'Instruções (brevemente)',
+          howto: 'Guia',
+          howtoNote: 'O guia ainda não está completo e continua em desenvolvimento.',
           copyright: '© 2026 SmartRosary',
           privacy: 'Política de privacidade',
           deployLabel: 'Última publicação',
@@ -349,6 +493,8 @@
         });
         const privacyLink = document.getElementById('privacy-link');
         if (privacyLink) privacyLink.href = `privacy.html?lang=${encodeURIComponent(lang)}`;
+        const howtoLink = document.getElementById('howto');
+        if (howtoLink) howtoLink.href = `https://drlechk.github.io/smartrosary-howto/howto/010_onoff.html?lang=${encodeURIComponent(lang)}`;
         if (label) label.textContent = dict.labelLanguage;
         setDeployInfo(dict);
       }
