@@ -1,13 +1,22 @@
-window.SmartRosaryAppVersion = "v1.0.5";
-window.SmartRosaryAppBuild = "6";
+window.SmartRosaryAppVersion = "v1.0.6";
+window.SmartRosaryAppBuild = "7";
 window.SmartRosaryAppApk = {
   latest: "downloads/smartrosary-companion-latest.apk",
-  versioned: "downloads/smartrosary-companion-v1.0.5.apk",
+  versioned: "downloads/smartrosary-companion-v1.0.6.apk",
   size: "59 MB",
-  sha256: "886463608fda41bcc07594d59d4342891b8544524fef2499bec251fec0245413"
+  sha256: "86dd840bc30eeadac06ca2d4df146145dfcbc7f50712845a74235f06d819fdd8"
 };
 
 window.SmartRosaryAppChangelog = [
+  {
+    version: "v1.0.6",
+    date: "2026-07-17",
+    changes: [
+      { type: "Changed", text: "History opens on the weekly view by default, matching the rosary device." },
+      { type: "Changed", text: "Weekly history charts fit the full week on screen without horizontal scrolling." },
+      { type: "Changed", text: "History chart stacks now follow the rosary device order for chaplets, mysteries, and intention-marked mysteries." }
+    ]
+  },
   {
     version: "v1.0.5",
     date: "2026-07-10",
