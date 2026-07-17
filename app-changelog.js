@@ -4,6 +4,7 @@ window.SmartRosaryAppApk = {
   latest: "downloads/smartrosary-companion-latest.apk",
   versioned: "downloads/smartrosary-companion-v1.0.6.apk",
   size: "59 MB",
+  buildDate: "2026-07-17",
   sha256: "86dd840bc30eeadac06ca2d4df146145dfcbc7f50712845a74235f06d819fdd8"
 };
 

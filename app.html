@@ -326,6 +326,10 @@
             <span id="apkSize">59 MB</span>
           </p>
           <p class="meta">
+            <span data-i18n="buildDateLabel">Data kompilacji</span>:
+            <span id="apkBuildDate">2026-07-17</span>
+          </p>
+          <p class="meta">
             <span data-i18n="shaLabel">SHA-256</span>:
             <code id="apkSha">86dd840bc30eeadac06ca2d4df146145dfcbc7f50712845a74235f06d819fdd8</code>
           </p>
@@ -382,6 +386,7 @@
           appStoreSoon: 'App Store wkrótce',
           versionLabel: 'Wersja',
           sizeLabel: 'Rozmiar',
+          buildDateLabel: 'Data kompilacji',
           shaLabel: 'SHA-256',
           changelogTitle: 'Historia zmian aplikacji',
           changelogVersionLabel: 'Wersja:',
@@ -405,6 +410,7 @@
           appStoreSoon: 'App Store coming soon',
           versionLabel: 'Version',
           sizeLabel: 'Size',
+          buildDateLabel: 'Build date',
           shaLabel: 'SHA-256',
           changelogTitle: 'App changelog',
           changelogVersionLabel: 'Version:',
@@ -428,6 +434,7 @@
           appStoreSoon: 'App Store bald verfügbar',
           versionLabel: 'Version',
           sizeLabel: 'Größe',
+          buildDateLabel: 'Build-Datum',
           shaLabel: 'SHA-256',
           changelogTitle: 'App-Änderungsverlauf',
           changelogVersionLabel: 'Version:',
@@ -451,6 +458,7 @@
           appStoreSoon: 'App Store bientôt',
           versionLabel: 'Version',
           sizeLabel: 'Taille',
+          buildDateLabel: 'Date de compilation',
           shaLabel: 'SHA-256',
           changelogTitle: 'Historique des changements',
           changelogVersionLabel: 'Version :',
@@ -474,6 +482,7 @@
           appStoreSoon: 'App Store próximamente',
           versionLabel: 'Versión',
           sizeLabel: 'Tamaño',
+          buildDateLabel: 'Fecha de compilación',
           shaLabel: 'SHA-256',
           changelogTitle: 'Historial de cambios',
           changelogVersionLabel: 'Versión:',
@@ -497,6 +506,7 @@
           appStoreSoon: 'App Store em breve',
           versionLabel: 'Versão',
           sizeLabel: 'Tamanho',
+          buildDateLabel: 'Data da compilação',
           shaLabel: 'SHA-256',
           changelogTitle: 'Histórico de alterações',
           changelogVersionLabel: 'Versão:',
@@ -561,6 +571,8 @@
         if (version) version.textContent = window.SmartRosaryAppVersion || 'v1.0.6';
         const size = $('#apkSize');
         if (size && apk.size) size.textContent = apk.size;
+        const buildDate = $('#apkBuildDate');
+        if (buildDate && apk.buildDate) buildDate.textContent = apk.buildDate;
         const sha = $('#apkSha');
         if (sha && apk.sha256) sha.textContent = apk.sha256;
       }
