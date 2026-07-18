@@ -1,14 +1,26 @@
-window.SmartRosaryAppVersion = "v1.0.6";
-window.SmartRosaryAppBuild = "7";
+window.SmartRosaryAppVersion = "v1.0.7";
+window.SmartRosaryAppBuild = "8";
 window.SmartRosaryAppApk = {
   latest: "downloads/smartrosary-companion-latest.apk",
-  versioned: "downloads/smartrosary-companion-v1.0.6.apk",
+  versioned: "downloads/smartrosary-companion-v1.0.7.apk",
   size: "59 MB",
-  buildDate: "2026-07-17",
-  sha256: "86dd840bc30eeadac06ca2d4df146145dfcbc7f50712845a74235f06d819fdd8"
+  buildDate: "2026-07-18",
+  sha256: "3894049059f064b04abccf3b02a9de32dce3a2acc20f04bec65a0a0a581e914e"
 };
 
 window.SmartRosaryAppChangelog = [
+  {
+    version: "v1.0.7",
+    date: "2026-07-18",
+    changes: [
+      { type: "Added", text: "Cached history, intentions, intention schedules, and wallpaper lists remain visible after the rosary disconnects." },
+      { type: "Added", text: "Last-sync timestamps are shown on cached history, intentions, schedule, and wallpaper pages." },
+      { type: "Changed", text: "Weekly history now starts on Sunday and shows the correct inclusive date span." },
+      { type: "Changed", text: "History chart x-axis labels are horizontal, centered under their bars, and localized for day and year views." },
+      { type: "Fixed", text: "Backup summaries and tapped backup details now use the selected app language." },
+      { type: "Fixed", text: "The intention device preview title now follows the selected app language." }
+    ]
+  },
   {
     version: "v1.0.6",
     date: "2026-07-17",

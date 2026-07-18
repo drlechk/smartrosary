@@ -320,18 +320,18 @@
           <a class="btn primary" id="apkDownload" href="downloads/smartrosary-companion-latest.apk" download data-i18n="downloadApk">Pobierz APK</a>
           <p class="meta">
             <span data-i18n="versionLabel">Wersja</span>:
-            <strong id="appVersion">v1.0.6</strong>
+            <strong id="appVersion">v1.0.7</strong>
             ·
             <span data-i18n="sizeLabel">Rozmiar</span>:
             <span id="apkSize">59 MB</span>
           </p>
           <p class="meta">
             <span data-i18n="buildDateLabel">Data kompilacji</span>:
-            <span id="apkBuildDate">2026-07-17</span>
+            <span id="apkBuildDate">2026-07-18</span>
           </p>
           <p class="meta">
             <span data-i18n="shaLabel">SHA-256</span>:
-            <code id="apkSha">86dd840bc30eeadac06ca2d4df146145dfcbc7f50712845a74235f06d819fdd8</code>
+            <code id="apkSha">3894049059f064b04abccf3b02a9de32dce3a2acc20f04bec65a0a0a581e914e</code>
           </p>
         </article>
 
@@ -568,7 +568,7 @@
         const download = $('#apkDownload');
         if (download && apk.latest) download.href = apk.latest;
         const version = $('#appVersion');
-        if (version) version.textContent = window.SmartRosaryAppVersion || 'v1.0.6';
+        if (version) version.textContent = window.SmartRosaryAppVersion || 'v1.0.7';
         const size = $('#apkSize');
         if (size && apk.size) size.textContent = apk.size;
         const buildDate = $('#apkBuildDate');
