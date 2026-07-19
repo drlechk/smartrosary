@@ -1,14 +1,23 @@
-window.SmartRosaryAppVersion = "v1.0.7";
-window.SmartRosaryAppBuild = "8";
+window.SmartRosaryAppVersion = "v1.0.8";
+window.SmartRosaryAppBuild = "9";
 window.SmartRosaryAppApk = {
   latest: "downloads/smartrosary-companion-latest.apk",
-  versioned: "downloads/smartrosary-companion-v1.0.7.apk",
+  versioned: "downloads/smartrosary-companion-v1.0.8.apk",
   size: "59 MB",
-  buildDate: "2026-07-18",
-  sha256: "3894049059f064b04abccf3b02a9de32dce3a2acc20f04bec65a0a0a581e914e"
+  buildDate: "2026-07-19",
+  sha256: "9d510e6f8f9abcf1aadaf82216dde2f922edbe5af1f0d78b770e044a2919d981"
 };
 
 window.SmartRosaryAppChangelog = [
+  {
+    version: "v1.0.8",
+    date: "2026-07-19",
+    changes: [
+      { type: "Fixed", text: "History downloads now use smaller BLE chunks and report incomplete transfers instead of showing truncated history." },
+      { type: "Fixed", text: "History parsing now ignores undated or implausible records, matching the rosary firmware charts." },
+      { type: "Fixed", text: "The intentions device preview now ignores system text scaling and bold-text accessibility overrides so it matches the device display." }
+    ]
+  },
   {
     version: "v1.0.7",
     date: "2026-07-18",
