@@ -1,21 +1,27 @@
-window.SmartRosaryAppVersion = "v1.0.8";
-window.SmartRosaryAppBuild = "9";
+window.SmartRosaryAppVersion = "v1.0.9";
+window.SmartRosaryAppBuild = "10";
 window.SmartRosaryAppApk = {
   latest: "downloads/smartrosary-companion-latest.apk",
-  versioned: "downloads/smartrosary-companion-v1.0.8.apk",
+  versioned: "downloads/smartrosary-companion-v1.0.9.apk",
   size: "59 MB",
   buildDate: "2026-07-20",
-  sha256: "766ea8045ded5002e68f85c250e0b95e1bcbc295f9892e9f11317a577ba33f31"
+  sha256: "a4c9e9f88f8dce4c065dc86bb7a19cbb084a1d3885956f699833bc8bad1826af"
 };
 
 window.SmartRosaryAppChangelog = [
   {
-    version: "v1.0.8",
+    version: "v1.0.9",
     date: "2026-07-20",
     changes: [
       { type: "Added", text: "Fast BLE v2 transfers for firmware, language, intentions, history restore, and wallpaper uploads on compatible rosary firmware." },
       { type: "Added", text: "The BLE Connection screen now shows whether the connected rosary is using v1 legacy or v2 fast transfer mode." },
-      { type: "Fixed", text: "The phone screen now stays awake during long uploads to the rosary." },
+      { type: "Fixed", text: "The phone screen now stays awake during long uploads to the rosary." }
+    ]
+  },
+  {
+    version: "v1.0.8",
+    date: "2026-07-19",
+    changes: [
       { type: "Fixed", text: "History downloads now use smaller BLE chunks and report incomplete transfers instead of showing truncated history." },
       { type: "Fixed", text: "History parsing now ignores undated or implausible records, matching the rosary firmware charts." },
       { type: "Fixed", text: "The intentions device preview now ignores system text scaling and bold-text accessibility overrides so it matches the device display." }
