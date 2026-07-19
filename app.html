@@ -351,7 +351,7 @@
           <p class="meta" data-i18n="iosText">Aplikacja na iPhone'a jest przygotowywana i pojawi się po zakończeniu procesu Apple/TestFlight.</p>
           <p class="meta">
             <span data-i18n="iosTestFlightText">Jeśli chcesz wziąć udział w teście TestFlight aplikacji iOS albo używać aplikacji wcześniej, zanim pojawi się jako stabilna wersja w App Store, napisz do nas na</span>
-            <a href="mailto:drlechko@gmail.com">drlechko@gmail.com</a>.
+            <a id="iosContactLink" href="#" rel="nofollow" data-contact="ZHJsZWNoa29AZ21haWwuY29t" data-i18n="emailLinkLabel">e-mail</a>.
           </p>
           <a class="btn disabled" href="#" role="button" aria-disabled="true" data-i18n="appStoreSoon">App Store wkrótce</a>
         </article>
@@ -402,6 +402,7 @@
           changelogVersionLabel: 'Wersja:',
           changelogDateLabel: 'Data',
           changelogEmpty: 'Brak wpisów w historii zmian.',
+          emailLinkLabel: 'e-mail',
           copyright: '© 2026 SmartRosary',
           deployLabel: 'Ostatnie wdrożenie',
           privacy: 'Polityka prywatności'
@@ -427,6 +428,7 @@
           changelogVersionLabel: 'Version:',
           changelogDateLabel: 'Date',
           changelogEmpty: 'No changelog entries.',
+          emailLinkLabel: 'email',
           copyright: '© 2026 SmartRosary',
           deployLabel: 'Last deploy',
           privacy: 'Privacy policy'
@@ -452,6 +454,7 @@
           changelogVersionLabel: 'Version:',
           changelogDateLabel: 'Datum',
           changelogEmpty: 'Keine Änderungsverlauf-Einträge.',
+          emailLinkLabel: 'E-Mail',
           copyright: '© 2026 SmartRosary',
           deployLabel: 'Letztes Deployment',
           privacy: 'Datenschutz'
@@ -477,6 +480,7 @@
           changelogVersionLabel: 'Version :',
           changelogDateLabel: 'Date',
           changelogEmpty: 'Aucune entrée dans l’historique.',
+          emailLinkLabel: 'e-mail',
           copyright: '© 2026 SmartRosary',
           deployLabel: 'Dernier déploiement',
           privacy: 'Politique de confidentialité'
@@ -502,6 +506,7 @@
           changelogVersionLabel: 'Versión:',
           changelogDateLabel: 'Fecha',
           changelogEmpty: 'No hay entradas en el historial.',
+          emailLinkLabel: 'correo electrónico',
           copyright: '© 2026 SmartRosary',
           deployLabel: 'Último despliegue',
           privacy: 'Política de privacidad'
@@ -527,6 +532,7 @@
           changelogVersionLabel: 'Versão:',
           changelogDateLabel: 'Data',
           changelogEmpty: 'Sem entradas no histórico.',
+          emailLinkLabel: 'e-mail',
           copyright: '© 2026 SmartRosary',
           deployLabel: 'Última publicação',
           privacy: 'Política de privacidade'
@@ -556,8 +562,31 @@
         if (label) label.textContent = dict.labelLanguage;
         const privacyLink = $('#privacy-link');
         if (privacyLink) privacyLink.href = `privacy.html?lang=${encodeURIComponent(lang)}`;
+        wireContactLink(dict);
         setDeployInfo(dict);
         renderChangelog();
+      }
+
+      function decodeContact(encoded) {
+        try {
+          return atob(encoded || '');
+        } catch (error) {
+          return '';
+        }
+      }
+
+      function wireContactLink(dict) {
+        const contactLink = $('#iosContactLink');
+        if (!contactLink) return;
+        const contact = decodeContact(contactLink.dataset.contact);
+        const label = dict.emailLinkLabel || 'email';
+        contactLink.textContent = label;
+        contactLink.setAttribute('aria-label', contact ? `${label}: ${contact}` : label);
+        contactLink.onclick = (event) => {
+          event.preventDefault();
+          if (!contact) return;
+          window.location.href = `mailto:${contact}?subject=SmartRosary%20iOS%20TestFlight`;
+        };
       }
 
       function setDeployInfo(dict) {
