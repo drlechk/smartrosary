@@ -1,14 +1,35 @@
-window.SmartRosaryAppVersion = "v1.0.9";
-window.SmartRosaryAppBuild = "10";
+window.SmartRosaryAppVersion = "v1.0.11";
+window.SmartRosaryAppBuild = "12";
 window.SmartRosaryAppApk = {
   latest: "downloads/smartrosary-companion-latest.apk",
-  versioned: "downloads/smartrosary-companion-v1.0.9.apk",
-  size: "59 MB",
-  buildDate: "2026-07-20",
-  sha256: "a4c9e9f88f8dce4c065dc86bb7a19cbb084a1d3885956f699833bc8bad1826af"
+  versioned: "downloads/smartrosary-companion-v1.0.11.apk",
+  size: "62 MB",
+  buildDate: "2026-07-22",
+  sha256: "2ba7d43e24f4b16a15b734bc3d53fd52d4f298e829a437de65bcd38d4077141a"
 };
 
 window.SmartRosaryAppChangelog = [
+  {
+    version: "v1.0.11",
+    date: "2026-07-22",
+    changes: [
+      { type: "Fixed", text: "Home refresh now keeps cached rosary settings when the device returns a truncated Settings payload, avoiding raw malformed JSON errors while still applying fresh statistics." },
+      { type: "Fixed", text: "Installed firmware version detection now salvages fwVersion and device metadata from partial Settings payloads so the app can keep showing update state after an interrupted read." }
+    ]
+  },
+  {
+    version: "v1.0.10",
+    date: "2026-07-22",
+    changes: [
+      { type: "Added", text: "Own wallpaper photos from camera or gallery are copied into app cache, saved with a title, shown in a separate selector, and included in app backups." },
+      { type: "Added", text: "The wallpaper preview supports drag and pinch gestures so cached photos can be positioned and resized before upload." },
+      { type: "Added", text: "Android camera captures can recover from external camera activity restarts and reopen the Wallpaper screen with the captured preview selected." },
+      { type: "Fixed", text: "Camera and gallery selection no longer intentionally suspend the rosary BLE connection while the external picker is open." },
+      { type: "Fixed", text: "Wallpaper deletes refresh the device list after removal and switch away from the deleted wallpaper before deleting it." },
+      { type: "Fixed", text: "Custom wallpaper conversion preserves the selected preview framing without cropping the already-loaded image unexpectedly." },
+      { type: "Fixed", text: "Dark mode button text and icons stay readable on Wallpaper and other secondary action buttons." }
+    ]
+  },
   {
     version: "v1.0.9",
     date: "2026-07-20",
