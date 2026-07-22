@@ -1,14 +1,22 @@
-window.SmartRosaryAppVersion = "v1.0.14";
-window.SmartRosaryAppBuild = "15";
+window.SmartRosaryAppVersion = "v1.0.15";
+window.SmartRosaryAppBuild = "16";
 window.SmartRosaryAppApk = {
   latest: "downloads/smartrosary-companion-latest.apk",
-  versioned: "downloads/smartrosary-companion-v1.0.14.apk",
+  versioned: "downloads/smartrosary-companion-v1.0.15.apk",
   size: "62 MB",
   buildDate: "2026-07-22",
-  sha256: "9bd4de8b88fe3cc4e4c424c0f94f6618720be6dd85ec5478a77d9d0434218901"
+  sha256: "88d5bf1e5ab0e936abbefd15ad47e1a2412cbfb84f1f8edeab6d847fbfdd780a"
 };
 
 window.SmartRosaryAppChangelog = [
+  {
+    version: "v1.0.15",
+    date: "2026-07-22",
+    changes: [
+      { type: "Added", text: "Progress indicator during device backup restoration." },
+      { type: "Fixed", text: "Improved resilience to JSON truncation when fetching statistics from older firmware versions with reduced MTU." }
+    ]
+  },
   {
     version: "v1.0.14",
     date: "2026-07-22",
