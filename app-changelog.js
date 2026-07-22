@@ -1,14 +1,21 @@
-window.SmartRosaryAppVersion = "v1.0.13";
-window.SmartRosaryAppBuild = "14";
+window.SmartRosaryAppVersion = "v1.0.14";
+window.SmartRosaryAppBuild = "15";
 window.SmartRosaryAppApk = {
   latest: "downloads/smartrosary-companion-latest.apk",
-  versioned: "downloads/smartrosary-companion-v1.0.13.apk",
+  versioned: "downloads/smartrosary-companion-v1.0.14.apk",
   size: "62 MB",
   buildDate: "2026-07-22",
-  sha256: "2c37ee48ff058808a1ca3edbcab82d49e620fa41bacaa87f46f21d350841b2c7"
+  sha256: "9bd4de8b88fe3cc4e4c424c0f94f6618720be6dd85ec5478a77d9d0434218901"
 };
 
 window.SmartRosaryAppChangelog = [
+  {
+    version: "v1.0.14",
+    date: "2026-07-22",
+    changes: [
+      { type: "Changed", text: "Firmware installation over BLE now uses adaptive pacing: faster acknowledged transfers for rosaries already running firmware v1.44 or newer, and a still-cautious legacy profile for older firmware receivers." }
+    ]
+  },
   {
     version: "v1.0.13",
     date: "2026-07-22",
