@@ -1,14 +1,21 @@
-window.SmartRosaryAppVersion = "v1.0.11";
-window.SmartRosaryAppBuild = "12";
+window.SmartRosaryAppVersion = "v1.0.12";
+window.SmartRosaryAppBuild = "13";
 window.SmartRosaryAppApk = {
   latest: "downloads/smartrosary-companion-latest.apk",
-  versioned: "downloads/smartrosary-companion-v1.0.11.apk",
+  versioned: "downloads/smartrosary-companion-v1.0.12.apk",
   size: "62 MB",
   buildDate: "2026-07-22",
-  sha256: "2ba7d43e24f4b16a15b734bc3d53fd52d4f298e829a437de65bcd38d4077141a"
+  sha256: "df72b12568519f80136aab869b08206efd894ca7d28fe7474d12af3745090705"
 };
 
 window.SmartRosaryAppChangelog = [
+  {
+    version: "v1.0.12",
+    date: "2026-07-22",
+    changes: [
+      { type: "Fixed", text: "Firmware installation over BLE now uses conservative acknowledged chunks so ESP32-C3 rosaries are less likely to drop or crash midway through an update." }
+    ]
+  },
   {
     version: "v1.0.11",
     date: "2026-07-22",
