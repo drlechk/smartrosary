@@ -1,14 +1,21 @@
-window.SmartRosaryAppVersion = "v1.0.17";
-window.SmartRosaryAppBuild = "18";
+window.SmartRosaryAppVersion = "v1.0.18";
+window.SmartRosaryAppBuild = "19";
 window.SmartRosaryAppApk = {
   latest: "downloads/smartrosary-companion-latest.apk",
-  versioned: "downloads/smartrosary-companion-v1.0.17.apk",
+  versioned: "downloads/smartrosary-companion-v1.0.18.apk",
   size: "63 MB",
   buildDate: "2026-07-26",
-  sha256: "7a29df9b1475295b487d7568ea6d5dc8013c2e271ec6205cb39279963b73556f"
+  sha256: "c5fa973d4292635fac7783f39fc0e9902ea2f40d4413da681e56a709bbacb1aa"
 };
 
 window.SmartRosaryAppChangelog = [
+  {
+    version: "v1.0.18",
+    date: "2026-07-26",
+    changes: [
+      { type: "Fixed", text: "ESP32-C3 firmware updates keep the conservative OTA chunk size and pacing even when the installed firmware version supports the newer OTA worker." }
+    ]
+  },
   {
     version: "v1.0.17",
     date: "2026-07-26",
