@@ -1,14 +1,22 @@
-window.SmartRosaryAppVersion = "v1.0.16";
-window.SmartRosaryAppBuild = "17";
+window.SmartRosaryAppVersion = "v1.0.17";
+window.SmartRosaryAppBuild = "18";
 window.SmartRosaryAppApk = {
   latest: "downloads/smartrosary-companion-latest.apk",
-  versioned: "downloads/smartrosary-companion-v1.0.16.apk",
+  versioned: "downloads/smartrosary-companion-v1.0.17.apk",
   size: "63 MB",
   buildDate: "2026-07-26",
-  sha256: "ebb7ca1271df2762be201456c678af45a7e49e47903cef6704fca742d72d16a0"
+  sha256: "7a29df9b1475295b487d7568ea6d5dc8013c2e271ec6205cb39279963b73556f"
 };
 
 window.SmartRosaryAppChangelog = [
+  {
+    version: "v1.0.17",
+    date: "2026-07-26",
+    changes: [
+      { type: "Fixed", text: "Firmware, language, and intentions installations now wait until background rosary synchronization is idle before starting a BLE transfer." },
+      { type: "Fixed", text: "Status and settings notification refreshes no longer start fallback BLE reads during active device transfers." }
+    ]
+  },
   {
     version: "v1.0.16",
     date: "2026-07-26",
