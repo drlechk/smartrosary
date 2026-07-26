@@ -1,14 +1,25 @@
-window.SmartRosaryAppVersion = "v1.0.15";
-window.SmartRosaryAppBuild = "16";
+window.SmartRosaryAppVersion = "v1.0.16";
+window.SmartRosaryAppBuild = "17";
 window.SmartRosaryAppApk = {
   latest: "downloads/smartrosary-companion-latest.apk",
-  versioned: "downloads/smartrosary-companion-v1.0.15.apk",
-  size: "62 MB",
-  buildDate: "2026-07-22",
-  sha256: "88d5bf1e5ab0e936abbefd15ad47e1a2412cbfb84f1f8edeab6d847fbfdd780a"
+  versioned: "downloads/smartrosary-companion-v1.0.16.apk",
+  size: "63 MB",
+  buildDate: "2026-07-26",
+  sha256: "ebb7ca1271df2762be201456c678af45a7e49e47903cef6704fca742d72d16a0"
 };
 
 window.SmartRosaryAppChangelog = [
+  {
+    version: "v1.0.16",
+    date: "2026-07-26",
+    changes: [
+      { type: "Added", text: "Built-in 466x466 wallpaper presets for ESP32-S3 rosaries." },
+      { type: "Changed", text: "Wallpaper transfers now use larger negotiated BLE chunks and multi-credit pacing on compatible firmware while keeping legacy firmware compatibility." },
+      { type: "Fixed", text: "Wallpaper file listing, selection, and deletion are more tolerant of mixed or truncated firmware responses." },
+      { type: "Fixed", text: "Wallpaper lists refresh after connecting to a rosary so device files appear immediately." },
+      { type: "Fixed", text: "Truncated Settings responses now fall back to cached device data instead of accepting incomplete recovered JSON." }
+    ]
+  },
   {
     version: "v1.0.15",
     date: "2026-07-22",
