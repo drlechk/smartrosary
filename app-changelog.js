@@ -1,14 +1,21 @@
-window.SmartRosaryAppVersion = "v1.0.18";
-window.SmartRosaryAppBuild = "19";
+window.SmartRosaryAppVersion = "v1.0.19";
+window.SmartRosaryAppBuild = "20";
 window.SmartRosaryAppApk = {
   latest: "downloads/smartrosary-companion-latest.apk",
-  versioned: "downloads/smartrosary-companion-v1.0.18.apk",
-  size: "63 MB",
-  buildDate: "2026-07-26",
-  sha256: "c5fa973d4292635fac7783f39fc0e9902ea2f40d4413da681e56a709bbacb1aa"
+  versioned: "downloads/smartrosary-companion-v1.0.19.apk",
+  size: "60 MB",
+  buildDate: "2026-07-27",
+  sha256: "f4f4de448244c1efa15ed4dd6f8930655f12e5291a686bf1d868b0251f4588d3"
 };
 
 window.SmartRosaryAppChangelog = [
+  {
+    version: "v1.0.19",
+    date: "2026-07-27",
+    changes: [
+      { type: "Added", text: "Added support for displaying multi-language firmware release messages below update hints." }
+    ]
+  },
   {
     version: "v1.0.18",
     date: "2026-07-26",
