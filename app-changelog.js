@@ -1,14 +1,22 @@
-window.SmartRosaryAppVersion = "v1.0.19";
-window.SmartRosaryAppBuild = "20";
+window.SmartRosaryAppVersion = "v1.0.20";
+window.SmartRosaryAppBuild = "21";
 window.SmartRosaryAppApk = {
   latest: "downloads/smartrosary-companion-latest.apk",
-  versioned: "downloads/smartrosary-companion-v1.0.19.apk",
-  size: "60 MB",
-  buildDate: "2026-07-27",
-  sha256: "f4f4de448244c1efa15ed4dd6f8930655f12e5291a686bf1d868b0251f4588d3"
+  versioned: "downloads/smartrosary-companion-v1.0.20.apk",
+  size: "59 MB",
+  buildDate: "2026-07-29",
+  sha256: "e42edf9a0f10ce37629222c23b8c414abe329908e81a8b9c2872139807b5f09e"
 };
 
 window.SmartRosaryAppChangelog = [
+  {
+    version: "v1.0.20",
+    date: "2026-07-29",
+    changes: [
+      { type: "Changed", text: "Dynamically fetch wallpaper presets from manifest to reduce app binary size." },
+      { type: "Fixed", text: "Fix wallpaper capacity limit calculation for ESP32-S3 models (allow up to 10 images)." }
+    ]
+  },
   {
     version: "v1.0.19",
     date: "2026-07-27",
