@@ -1,14 +1,21 @@
-window.SmartRosaryAppVersion = "v1.0.21";
-window.SmartRosaryAppBuild = "22";
+window.SmartRosaryAppVersion = "v1.0.22";
+window.SmartRosaryAppBuild = "23";
 window.SmartRosaryAppApk = {
   latest: "downloads/smartrosary-companion-latest.apk",
-  versioned: "downloads/smartrosary-companion-v1.0.21.apk",
+  versioned: "downloads/smartrosary-companion-v1.0.22.apk",
   size: "59 MB",
   buildDate: "2026-07-30",
-  sha256: "5a533e84bf48d4b49767164bedfb6dc31c397a4f5d93f5df11cdc2af70e51464"
+  sha256: "de469af8c8ebd33c0bfff6f406080693a03d77f2f2988d1685a07d6a97d320c3"
 };
 
 window.SmartRosaryAppChangelog = [
+  {
+    version: "v1.0.22",
+    date: "2026-07-30",
+    changes: [
+      { type: "Changed", text: "Firmware update notices now show applicable breaking-change warnings in a red box and regular release notes in a separate normal box." }
+    ]
+  },
   {
     version: "v1.0.21",
     date: "2026-07-30",
