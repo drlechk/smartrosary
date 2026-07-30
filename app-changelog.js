@@ -1,14 +1,25 @@
-window.SmartRosaryAppVersion = "v1.0.20";
-window.SmartRosaryAppBuild = "21";
+window.SmartRosaryAppVersion = "v1.0.21";
+window.SmartRosaryAppBuild = "22";
 window.SmartRosaryAppApk = {
   latest: "downloads/smartrosary-companion-latest.apk",
-  versioned: "downloads/smartrosary-companion-v1.0.20.apk",
+  versioned: "downloads/smartrosary-companion-v1.0.21.apk",
   size: "59 MB",
-  buildDate: "2026-07-29",
-  sha256: "e42edf9a0f10ce37629222c23b8c414abe329908e81a8b9c2872139807b5f09e"
+  buildDate: "2026-07-30",
+  sha256: "5a533e84bf48d4b49767164bedfb6dc31c397a4f5d93f5df11cdc2af70e51464"
 };
 
 window.SmartRosaryAppChangelog = [
+  {
+    version: "v1.0.21",
+    date: "2026-07-30",
+    changes: [
+      { type: "Changed", text: "Updated Flutter package lockfile to current compatible package versions." },
+      { type: "Changed", text: "Increased the stable firmware OTA transfer profile for faster updates." },
+      { type: "Fixed", text: "BLE reconnect synchronization no longer sends remote input writes that can advance the first rosary bead on the device." },
+      { type: "Fixed", text: "Live mystery names now match the device-style colored mystery pill without a redundant label." },
+      { type: "Fixed", text: "ESP32-C3 firmware updates continue to use the conservative rescue transfer profile for legacy receivers." }
+    ]
+  },
   {
     version: "v1.0.20",
     date: "2026-07-29",
