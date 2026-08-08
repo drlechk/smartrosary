@@ -1,14 +1,22 @@
-window.SmartRosaryAppVersion = "v1.0.22";
-window.SmartRosaryAppBuild = "23";
+window.SmartRosaryAppVersion = "v1.0.23";
+window.SmartRosaryAppBuild = "24";
 window.SmartRosaryAppApk = {
   latest: "downloads/smartrosary-companion-latest.apk",
-  versioned: "downloads/smartrosary-companion-v1.0.22.apk",
+  versioned: "downloads/smartrosary-companion-v1.0.23.apk",
   size: "59 MB",
-  buildDate: "2026-07-30",
-  sha256: "de469af8c8ebd33c0bfff6f406080693a03d77f2f2988d1685a07d6a97d320c3"
+  buildDate: "2026-08-09",
+  sha256: "11fabe997b99e3f5ceeffed74541c8142c0676b8cecebf257179da3a66be1ff3"
 };
 
 window.SmartRosaryAppChangelog = [
+  {
+    version: "v1.0.23",
+    date: "2026-08-09",
+    changes: [
+      { type: "Added", text: "Added ESP32-S3 AMOLED audio package installation over BLE, including audio package selection and version display." },
+      { type: "Changed", text: "The Updates screen now shows connected S3 AMOLED audio package status and only enables audio upload when the firmware exposes the supported BLE characteristic." }
+    ]
+  },
   {
     version: "v1.0.22",
     date: "2026-07-30",
