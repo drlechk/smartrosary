@@ -1,14 +1,23 @@
-window.SmartRosaryAppVersion = "v1.0.25";
-window.SmartRosaryAppBuild = "26";
+window.SmartRosaryAppVersion = "v1.0.26";
+window.SmartRosaryAppBuild = "27";
 window.SmartRosaryAppApk = {
   latest: "downloads/smartrosary-companion-latest.apk",
-  versioned: "downloads/smartrosary-companion-v1.0.25.apk",
+  versioned: "downloads/smartrosary-companion-v1.0.26.apk",
   size: "59 MB",
   buildDate: "2026-08-16",
-  sha256: "bea8c7f9a71260158b97ef278d80ce288f7258d69735088e8d65e82b75fc7606"
+  sha256: "24ba8670f85aa20757fc91e42b4c8c29f89c0663e0b9328aa9e99bd674cb939e"
 };
 
 window.SmartRosaryAppChangelog = [
+  {
+    version: "v1.0.26",
+    date: "2026-08-16",
+    changes: [
+      { type: "Added", text: "Published intentions packages can now be loaded from the Intentions Editor." },
+      { type: "Fixed", text: "Intentions package selectors no longer overlap long package names on narrow mobile screens." },
+      { type: "Fixed", text: "Intentions package installs over BLE preserve intentions already stored on current firmware and refuse the transfer when there is no remaining room." }
+    ]
+  },
   {
     version: "v1.0.25",
     date: "2026-08-16",
