@@ -1,14 +1,21 @@
-window.SmartRosaryAppVersion = "v1.0.24";
-window.SmartRosaryAppBuild = "25";
+window.SmartRosaryAppVersion = "v1.0.25";
+window.SmartRosaryAppBuild = "26";
 window.SmartRosaryAppApk = {
   latest: "downloads/smartrosary-companion-latest.apk",
-  versioned: "downloads/smartrosary-companion-v1.0.24.apk",
+  versioned: "downloads/smartrosary-companion-v1.0.25.apk",
   size: "59 MB",
   buildDate: "2026-08-16",
-  sha256: "c02fa68ea05ceb55fa91e151f994fa56691b0a90787ad90ed97264d6c3182b1f"
+  sha256: "bea8c7f9a71260158b97ef278d80ce288f7258d69735088e8d65e82b75fc7606"
 };
 
 window.SmartRosaryAppChangelog = [
+  {
+    version: "v1.0.25",
+    date: "2026-08-16",
+    changes: [
+      { type: "Changed", text: "Intentions package choices now come from the published installer manifest, so new presets and packages can appear without a separate app update." }
+    ]
+  },
   {
     version: "v1.0.24",
     date: "2026-08-16",
