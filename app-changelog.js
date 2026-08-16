@@ -1,14 +1,23 @@
-window.SmartRosaryAppVersion = "v1.0.23";
-window.SmartRosaryAppBuild = "24";
+window.SmartRosaryAppVersion = "v1.0.24";
+window.SmartRosaryAppBuild = "25";
 window.SmartRosaryAppApk = {
   latest: "downloads/smartrosary-companion-latest.apk",
-  versioned: "downloads/smartrosary-companion-v1.0.23.apk",
+  versioned: "downloads/smartrosary-companion-v1.0.24.apk",
   size: "59 MB",
-  buildDate: "2026-08-09",
-  sha256: "11fabe997b99e3f5ceeffed74541c8142c0676b8cecebf257179da3a66be1ff3"
+  buildDate: "2026-08-16",
+  sha256: "c02fa68ea05ceb55fa91e151f994fa56691b0a90787ad90ed97264d6c3182b1f"
 };
 
 window.SmartRosaryAppChangelog = [
+  {
+    version: "v1.0.24",
+    date: "2026-08-16",
+    changes: [
+      { type: "Added", text: "Latin audio packages are available from the audio installer flow." },
+      { type: "Changed", text: "Intentions transfers use the safe record upload path on compatible firmware, while USB flashing can still install full intentions NVS packages." },
+      { type: "Fixed", text: "The audio selector layout no longer overlaps option text on narrow mobile screens." }
+    ]
+  },
   {
     version: "v1.0.23",
     date: "2026-08-09",
