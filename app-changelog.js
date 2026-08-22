@@ -1,14 +1,25 @@
-window.SmartRosaryAppVersion = "v1.0.26";
-window.SmartRosaryAppBuild = "27";
+window.SmartRosaryAppVersion = "v1.0.27";
+window.SmartRosaryAppBuild = "28";
 window.SmartRosaryAppApk = {
   latest: "downloads/smartrosary-companion-latest.apk",
-  versioned: "downloads/smartrosary-companion-v1.0.26.apk",
+  versioned: "downloads/smartrosary-companion-v1.0.27.apk",
   size: "59 MB",
-  buildDate: "2026-08-16",
-  sha256: "24ba8670f85aa20757fc91e42b4c8c29f89c0663e0b9328aa9e99bd674cb939e"
+  buildDate: "2026-08-23",
+  sha256: "25ff3adec27d31f05ceb077eb34e18bac84dfe7733f984da765eda1367494246"
 };
 
 window.SmartRosaryAppChangelog = [
+  {
+    version: "v1.0.27",
+    date: "2026-08-23",
+    changes: [
+      { type: "Added", text: "ESP32-S3 Touch AMOLED 1.8 portrait and landscape rosaries now use their matching firmware, wallpaper dimensions, wallpaper limits, and live-view display aspect ratios." },
+      { type: "Fixed", text: "Android pairing retries transient GATT 133 connection failures before reporting an error." },
+      { type: "Fixed", text: "The S3 1.8 live rosary view now uses the same rectangular bead geometry as the firmware." },
+      { type: "Fixed", text: "Wallpaper previews and custom wallpaper positioning now match rectangular S3 1.8 displays." },
+      { type: "Fixed", text: "Long audio package labels no longer overlap in the update selector." }
+    ]
+  },
   {
     version: "v1.0.26",
     date: "2026-08-16",
