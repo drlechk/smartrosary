@@ -1,14 +1,26 @@
-window.SmartRosaryAppVersion = "v1.0.27";
-window.SmartRosaryAppBuild = "28";
+window.SmartRosaryAppVersion = "v1.0.28";
+window.SmartRosaryAppBuild = "29";
 window.SmartRosaryAppApk = {
   latest: "downloads/smartrosary-companion-latest.apk",
-  versioned: "downloads/smartrosary-companion-v1.0.27.apk",
-  size: "59 MB",
-  buildDate: "2026-08-23",
-  sha256: "25ff3adec27d31f05ceb077eb34e18bac84dfe7733f984da765eda1367494246"
+  versioned: "downloads/smartrosary-companion-v1.0.28.apk",
+  size: "60 MB",
+  buildDate: "2026-08-30",
+  sha256: "a4e9520dfd5e130fe8a7f3bca75443b77c7fc3d765a1aef651615c019a8ac359"
 };
 
 window.SmartRosaryAppChangelog = [
+  {
+    version: "v1.0.28",
+    date: "2026-08-30",
+    changes: [
+      { type: "Added", text: "Added Rosary of Peace support across the live device view, home and device status, statistics, durations, history, and app backups." },
+      { type: "Added", text: "Added audio-feedback controls for supported ESP32-S3 rosaries and a device-proportional S3 remote-control canvas." },
+      { type: "Changed", text: "The live view refreshes while open and uses localized Peace pill labels, including Pokoju, Friedens, and Latin Pax." },
+      { type: "Changed", text: "Updated all dependencies resolvable with Flutter 3.44, including go_router 18 and compatible BLE and platform plugins." },
+      { type: "Fixed", text: "Firmware release and breaking-change notes correctly decode literal UTF-8 characters and historical JSON Unicode escapes." },
+      { type: "Fixed", text: "Rosary of Peace history and statistics remain separate from Divine Mercy chaplets when decoding, combining, displaying, and backing up data." }
+    ]
+  },
   {
     version: "v1.0.27",
     date: "2026-08-23",
