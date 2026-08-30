@@ -1,14 +1,22 @@
-window.SmartRosaryAppVersion = "v1.0.28";
-window.SmartRosaryAppBuild = "29";
+window.SmartRosaryAppVersion = "v1.0.29";
+window.SmartRosaryAppBuild = "30";
 window.SmartRosaryAppApk = {
   latest: "downloads/smartrosary-companion-latest.apk",
-  versioned: "downloads/smartrosary-companion-v1.0.28.apk",
+  versioned: "downloads/smartrosary-companion-v1.0.29.apk",
   size: "60 MB",
   buildDate: "2026-08-30",
-  sha256: "a4e9520dfd5e130fe8a7f3bca75443b77c7fc3d765a1aef651615c019a8ac359"
+  sha256: "d8112ae3e81be48335303a16215b3fe0b876d2a48ab42a2634b2d89e557cb188"
 };
 
 window.SmartRosaryAppChangelog = [
+  {
+    version: "v1.0.29",
+    date: "2026-08-30",
+    changes: [
+      { type: "Fixed", text: "Statistics donuts reconstruct mystery totals from per-part data, preserve partial five-decade rosaries, and display Peace separately instead of showing only Chaplet." },
+      { type: "Fixed", text: "ESP32-C3 rosaries hide S3-only voice and bell-volume controls while retaining haptic-feedback settings." }
+    ]
+  },
   {
     version: "v1.0.28",
     date: "2026-08-30",
