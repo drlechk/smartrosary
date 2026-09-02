@@ -1,14 +1,21 @@
-window.SmartRosaryAppVersion = "v1.0.30";
-window.SmartRosaryAppBuild = "31";
+window.SmartRosaryAppVersion = "v1.0.31";
+window.SmartRosaryAppBuild = "32";
 window.SmartRosaryAppApk = {
   latest: "downloads/smartrosary-companion-latest.apk",
-  versioned: "downloads/smartrosary-companion-v1.0.30.apk",
+  versioned: "downloads/smartrosary-companion-v1.0.31.apk",
   size: "64 MB",
-  buildDate: "2026-09-02",
-  sha256: "5e225fd2ef927a6a436d79dcb698baed8b1cb7e57d3c08c708763b2d3bd93be6"
+  buildDate: "2026-09-03",
+  sha256: "cf7d0a76cfb71ce6a5079b90a34eadfbab3aede29879dd1dd545f44e01861063"
 };
 
 window.SmartRosaryAppChangelog = [
+  {
+    version: "v1.0.31",
+    date: "2026-09-03",
+    changes: [
+      { type: "Fixed", text: "Deleting an individual intention now installs the complete updated text and schedule, supports removing the last remaining entry, and updates the local cache immediately so deleted entries do not reappear while the rosary restarts." }
+    ]
+  },
   {
     version: "v1.0.30",
     date: "2026-09-02",
