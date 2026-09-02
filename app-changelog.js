@@ -1,14 +1,24 @@
-window.SmartRosaryAppVersion = "v1.0.29";
-window.SmartRosaryAppBuild = "30";
+window.SmartRosaryAppVersion = "v1.0.30";
+window.SmartRosaryAppBuild = "31";
 window.SmartRosaryAppApk = {
   latest: "downloads/smartrosary-companion-latest.apk",
-  versioned: "downloads/smartrosary-companion-v1.0.29.apk",
-  size: "60 MB",
-  buildDate: "2026-08-30",
-  sha256: "d8112ae3e81be48335303a16215b3fe0b876d2a48ab42a2634b2d89e557cb188"
+  versioned: "downloads/smartrosary-companion-v1.0.30.apk",
+  size: "64 MB",
+  buildDate: "2026-09-02",
+  sha256: "5e225fd2ef927a6a436d79dcb698baed8b1cb7e57d3c08c708763b2d3bd93be6"
 };
 
 window.SmartRosaryAppChangelog = [
+  {
+    version: "v1.0.30",
+    date: "2026-09-02",
+    changes: [
+      { type: "Added", text: "App Settings now includes a searchable list of every runtime open-source package, its version, license identifier, and full license text." },
+      { type: "Added", text: "Last-synchronized device status, statistics, history, settings, Live View, and battery information remain available while the rosary is offline." },
+      { type: "Changed", text: "Renamed Rosary of Peace to Chaplet of Peace throughout the app and all supported translations." },
+      { type: "Fixed", text: "Offline device data is saved when a rosary disconnects, and cached settings remain safely read-only until it reconnects." }
+    ]
+  },
   {
     version: "v1.0.29",
     date: "2026-08-30",
