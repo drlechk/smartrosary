@@ -1,14 +1,28 @@
-window.SmartRosaryAppVersion = "v1.0.32";
-window.SmartRosaryAppBuild = "33";
+window.SmartRosaryAppVersion = "v1.0.33";
+window.SmartRosaryAppBuild = "34";
 window.SmartRosaryAppApk = {
   "latest": "downloads/smartrosary-companion-latest.apk",
-  "versioned": "downloads/smartrosary-companion-v1.0.32.apk",
+  "versioned": "downloads/smartrosary-companion-v1.0.33.apk",
   "size": "67 MB",
   "buildDate": "2026-09-06",
-  "sha256": "6476c5febf77799b6dcfedbc12c59e318d04dcd32a31d6c65027f3a547b6da6d"
+  "sha256": "41ece6dfb8b20b368c432d85e53c85fa52403c925314446fcbc4479cab8cb851"
 };
 
 window.SmartRosaryAppChangelog = [
+{
+  "version": "v1.0.33",
+  "date": "2026-09-06",
+  "changes": [
+    {
+      "type": "Fixed",
+      "text": "Adding a preset in the intention editor keeps all installed intentions, custom text, and schedules. Editing, moving, and deleting intentions preserves schedule alignment."
+    },
+    {
+      "type": "Fixed",
+      "text": "The editor follows refreshed device data, retains edits after failed installs, and enforces the 32-intention device limit without silently dropping entries."
+    }
+  ]
+},
   {
   "version": "v1.0.32",
   "date": "2026-09-06",
