@@ -1,14 +1,28 @@
-window.SmartRosaryAppVersion = "v1.0.31";
-window.SmartRosaryAppBuild = "32";
+window.SmartRosaryAppVersion = "v1.0.32";
+window.SmartRosaryAppBuild = "33";
 window.SmartRosaryAppApk = {
-  latest: "downloads/smartrosary-companion-latest.apk",
-  versioned: "downloads/smartrosary-companion-v1.0.31.apk",
-  size: "64 MB",
-  buildDate: "2026-09-03",
-  sha256: "cf7d0a76cfb71ce6a5079b90a34eadfbab3aede29879dd1dd545f44e01861063"
+  "latest": "downloads/smartrosary-companion-latest.apk",
+  "versioned": "downloads/smartrosary-companion-v1.0.32.apk",
+  "size": "67 MB",
+  "buildDate": "2026-09-06",
+  "sha256": "6476c5febf77799b6dcfedbc12c59e318d04dcd32a31d6c65027f3a547b6da6d"
 };
 
 window.SmartRosaryAppChangelog = [
+  {
+  "version": "v1.0.32",
+  "date": "2026-09-06",
+  "changes": [
+    {
+      "type": "Changed",
+      "text": "Available intention packages and their current text are fetched directly from the public intentions page. Device backups preserve installed intentions and custom edits."
+    },
+    {
+      "type": "Fixed",
+      "text": "Rejects malformed intention text before it can corrupt a backup. Firmware v1.71 fixes the underlying text boundary issue."
+    }
+  ]
+},
   {
     version: "v1.0.31",
     date: "2026-09-03",
